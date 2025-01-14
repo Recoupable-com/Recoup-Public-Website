@@ -12,6 +12,19 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        jakarta: ['var(--font-plus-jakarta)'],
+        inter: ['var(--font-inter-tight)'],
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-25%)' }
+        }
+      },
+      animation: {
+        scroll: 'scroll 15s linear infinite'
+      }
     },
   },
   plugins: [],
