@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakarta.variable} ${interTight.variable} ${rampartOne.variable} font-inter bg-[#EDEDED]`}>
+      <body className={`${plusJakarta.variable} ${interTight.variable} ${rampartOne.variable} font-inter`}>
         {children}
       </body>
     </html>
