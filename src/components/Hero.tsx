@@ -252,27 +252,19 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-yellow-400 to-orange-500 p-8 rounded-[24px] relative overflow-hidden h-[400px] flex flex-col justify-end">
-            <div className="absolute top-4 right-4 flex gap-2">
-              <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9 9h.01M15 9h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9 9h.01M15 9h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+            className="bg-white border border-gray-200 p-8 rounded-[24px] relative overflow-hidden h-[400px] flex flex-col justify-end group hover:border-black/20 hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
+          >
+            {/* Decorative dots */}
+            <div className="absolute top-8 right-8">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-black/5"></div>
+                <div className="w-3 h-3 rounded-full bg-black/5"></div>
               </div>
             </div>
             
             <div>
               <h3 className="text-4xl font-medium mb-4">Subscribe</h3>
-              <p className="text-xl text-black/70">Pick a plan and unlock full access to Recoup&apos;s AI-agent powered suite.</p>
+              <p className="text-xl text-gray-500">Pick a plan and unlock full access to Recoup&apos;s AI-agent powered suite.</p>
             </div>
           </motion.div>
 
@@ -282,11 +274,12 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-[24px] text-white relative overflow-hidden h-[400px] flex flex-col justify-end">
+            className="bg-white border border-gray-200 p-8 rounded-[24px] relative overflow-hidden h-[400px] flex flex-col justify-end group hover:border-black/20 hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
+          >
             <div className="absolute inset-x-8 top-8">
               <div className="grid grid-cols-4 gap-2">
                 {['Playlisting', 'Promotion', 'Marketing', 'Growth', 'Fanbase', 'Analytics', 'Strategy', 'Outreach'].map((item, i) => (
-                  <div key={i} className="bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg text-sm">
+                  <div key={i} className="bg-black/5 px-3 py-2 rounded-lg text-sm text-gray-600">
                     {item}
                   </div>
                 ))}
@@ -295,7 +288,7 @@ export default function Hero() {
             
             <div>
               <h3 className="text-4xl font-medium mb-4">Analyze</h3>
-              <p className="text-xl text-white/70">Dive deep into fan behavior, track engagement, and identify untapped opportunities.</p>
+              <p className="text-xl text-gray-500">Dive deep into fan behavior, track engagement, and identify untapped opportunities.</p>
             </div>
           </motion.div>
 
@@ -305,15 +298,16 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-gradient-to-br from-red-500 to-purple-600 p-8 rounded-[24px] text-white relative overflow-hidden h-[400px] flex flex-col justify-end">
+            className="bg-white border border-gray-200 p-8 rounded-[24px] relative overflow-hidden h-[400px] flex flex-col justify-end group hover:border-black/20 hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
+          >
             <div className="absolute top-8 right-8 flex -space-x-4">
-              <div className="w-32 h-48 bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl rotate-6"></div>
-              <div className="w-32 h-48 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl -rotate-6"></div>
+              <div className="w-32 h-48 bg-black/5 rounded-2xl rotate-6"></div>
+              <div className="w-32 h-48 bg-black/5 rounded-2xl -rotate-6"></div>
             </div>
             
             <div>
               <h3 className="text-4xl font-medium mb-4">Grow</h3>
-              <p className="text-xl text-white/70">Launch campaigns, measure results, and watch your artist&apos;s career take off.</p>
+              <p className="text-xl text-gray-500">Launch campaigns, measure results, and watch your artist&apos;s career take off.</p>
             </div>
           </motion.div>
         </div>
