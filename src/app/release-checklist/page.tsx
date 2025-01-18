@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 
 type ChecklistItem = {
@@ -64,6 +64,15 @@ const checklistItems: ChecklistItem[] = [
 
 export default function ReleaseChecklist() {
   const [completed, setCompleted] = useState<string[]>([]);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Return null on server-side to prevent hydration mismatch
+  }
 
   const toggleItem = (id: string) => {
     setCompleted(prev => 
@@ -96,7 +105,7 @@ export default function ReleaseChecklist() {
               Release Checklist
             </h1>
             <p className="text-gray-500 text-lg max-w-[600px] mx-auto">
-              Stay organized and ensure you've completed all necessary steps before releasing your music.
+              Stay organized and ensure you&apos;ve completed all necessary steps before releasing your music.
             </p>
           </motion.div>
 

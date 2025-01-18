@@ -2,10 +2,19 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Return null on server-side to prevent hydration mismatch
+  }
 
   return (
     <>
@@ -44,6 +53,10 @@ export default function Navbar() {
                 
                 <Link href="/research" className="hover:opacity-70 transition-opacity">
                   Research
+                </Link>
+
+                <Link href="/pricing" className="hover:opacity-70 transition-opacity">
+                  Pricing
                 </Link>
               </div>
 
@@ -89,6 +102,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/research" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
                       Research
+                    </Link>
+                    <Link href="/pricing" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                      Pricing
                     </Link>
                   </div>
                 </div>

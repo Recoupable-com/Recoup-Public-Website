@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import LoadingAnimation from '@/components/LoadingAnimation';
 
 type Platform = 'instagram' | 'tiktok' | 'twitter' | 'youtube';
 
@@ -12,6 +13,12 @@ interface ContentPlan {
   contentIdeas: string[];
   postingSchedule: string;
   engagementTips: string[];
+}
+
+interface PlatformInfo {
+  id: Platform;
+  label: string;
+  icon: React.ReactNode;
 }
 
 export default function ContentStrategy() {
@@ -29,7 +36,7 @@ export default function ContentStrategy() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [contentPlan, setContentPlan] = useState<ContentPlan[]>([]);
 
-  const platforms: { id: Platform; label: string; icon: JSX.Element }[] = [
+  const platforms: PlatformInfo[] = [
     {
       id: 'instagram',
       label: 'Instagram',
@@ -251,7 +258,16 @@ export default function ContentStrategy() {
           </motion.div>
 
           {/* Results */}
-          {contentPlan.length > 0 && (
+          {isGenerating ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mt-12 flex justify-center"
+            >
+              <LoadingAnimation />
+            </motion.div>
+          ) : contentPlan.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
