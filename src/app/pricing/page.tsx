@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 
 export default function PricingPage() {
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
 
   const plans = [
     {
       name: 'Free',
-      description: 'For artists just starting their journey in the music industry',
+      description: 'Perfect for getting started',
       price: 0,
-      credits: 'Basic features',
+      credits: '10 Credits',
       features: [
         'AI-powered press release generator',
         'Basic fan analytics dashboard',
@@ -24,9 +24,9 @@ export default function PricingPage() {
     },
     {
       name: 'Artist',
-      description: 'For independent artists ready to grow their fanbase',
-      price: 29,
-      credits: 'Full feature access',
+      description: 'Grow your fanbase',
+      price: billingPeriod === 'monthly' ? 29 : 23,
+      credits: '100 Credits',
       features: [
         'Everything in Free, plus',
         'Advanced fan behavior analytics',
@@ -38,11 +38,10 @@ export default function PricingPage() {
     },
     {
       name: 'Pro',
-      description: 'For serious artists scaling their music career',
-      price: billingPeriod === 'monthly' ? 79 : 65,
-      credits: 'Enhanced features',
+      description: 'Scale your music career',
+      price: billingPeriod === 'monthly' ? 99 : 79,
+      credits: '1000 Credits',
       isPopular: true,
-      discount: 'FIRST MONTH 50% OFF',
       features: [
         'Everything in Artist, plus',
         'Real-time fan engagement tracking',
@@ -54,9 +53,9 @@ export default function PricingPage() {
     },
     {
       name: 'Label',
-      description: 'For labels and management companies',
-      price: 199,
-      credits: 'Enterprise features',
+      description: 'For labels and management',
+      price: billingPeriod === 'monthly' ? 499 : 399,
+      credits: '10,000 Credits',
       features: [
         'Everything in Pro, plus',
         'Multi-artist account management',
@@ -98,7 +97,7 @@ export default function PricingPage() {
             <span className={`text-sm font-medium flex items-center gap-2 ${billingPeriod === 'yearly' ? 'text-black' : 'text-gray-500'}`}>
               YEARLY
               <span className="text-xs font-medium bg-green-100 text-green-800 px-2 py-0.5 rounded">
-                2 MONTHS FREE
+                20% OFF
               </span>
             </span>
           </div>
@@ -112,7 +111,7 @@ export default function PricingPage() {
                 transition={{ duration: 0.4 }}
                 className={`relative bg-white rounded-2xl border ${
                   plan.isPopular ? 'border-black' : 'border-gray-200'
-                } p-6`}
+                } p-6 hover:border-black/50 transition-colors duration-300`}
               >
                 {plan.isPopular && (
                   <div className="absolute -top-3 left-0 right-0 mx-auto w-fit px-3 py-1 bg-black text-white text-sm rounded-full">
@@ -124,19 +123,15 @@ export default function PricingPage() {
                   <p className="text-gray-600 text-sm">{plan.description}</p>
                 </div>
 
-                {plan.discount && (
-                  <div className="inline-block bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded mb-2">
-                    {plan.discount}
-                  </div>
-                )}
-
                 <div className="flex items-baseline gap-1 mb-6">
                   <span className="text-4xl font-medium">${plan.price}</span>
                   <span className="text-gray-500">/mo</span>
                 </div>
 
-                <button className={`w-full py-2.5 px-4 rounded-lg mb-6 text-sm font-medium ${
-                  plan.isPopular ? 'bg-black text-white' : 'bg-gray-100 text-gray-900'
+                <button className={`w-full py-2.5 px-4 rounded-lg mb-6 text-sm font-medium transition-colors duration-300 ${
+                  plan.isPopular 
+                    ? 'bg-black text-white hover:bg-black/90' 
+                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                 }`}>
                   GET STARTED
                 </button>

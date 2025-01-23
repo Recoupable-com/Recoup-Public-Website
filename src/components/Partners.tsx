@@ -43,14 +43,14 @@ export default function Partners() {
             Join the industry leaders and artists who use our platform to accelerate their success in the music business.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 md:gap-16 items-center max-w-[1000px] mx-auto">
             {partners.map((partner, index) => (
               <motion.div
                 key={partner.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative h-12 md:h-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className="relative h-12 md:h-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mx-auto w-full max-w-[180px]"
               >
                 <Image
                   src={partner.logo}

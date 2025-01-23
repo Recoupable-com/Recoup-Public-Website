@@ -37,37 +37,72 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-32 bg-black">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-medium text-white mb-6">
+    <section className="py-32 bg-zinc-900 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-[160px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 relative">
+        <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-block bg-gradient-to-r from-blue-500/20 to-blue-400/20 rounded-full px-4 py-1.5 mb-6"
+          >
+            <span className="text-blue-200 font-medium">
+              Simple 3-Step Process
+            </span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-6xl font-medium text-white mb-6 tracking-tight"
+          >
             How Recoup works
-          </h2>
-          <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed"
+          >
             Get started in minutes and let our AI help you grow your music career.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
-              className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-colors"
+              transition={{ duration: 0.5 }}
+              className="bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 rounded-3xl p-8 hover:border-zinc-600/50 transition-all duration-300 group"
             >
-              <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-2xl p-4 w-fit mb-8 ring-1 ring-white/10">
-                {step.icon}
+              <div className="bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-2xl p-4 w-fit mb-8 ring-1 ring-white/20 group-hover:ring-white/30 transition-all duration-300">
+                <div className="text-white">
+                  {step.icon}
+                </div>
               </div>
-              <div className="text-zinc-600 text-6xl font-medium mb-6">
-                {step.number}
+              
+              <div className="text-zinc-400 text-7xl font-medium mb-6 group-hover:text-zinc-300 transition-colors duration-300">
+                {String(step.number).padStart(2, '0')}
               </div>
-              <h3 className="text-white text-3xl font-medium mb-4">
+              
+              <h3 className="text-white text-2xl md:text-3xl font-medium mb-4 group-hover:text-white/90 transition-colors duration-300">
                 {step.title}
               </h3>
-              <p className="text-gray-400 text-lg">
+              
+              <p className="text-gray-300 text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 {step.description}
               </p>
             </motion.div>
