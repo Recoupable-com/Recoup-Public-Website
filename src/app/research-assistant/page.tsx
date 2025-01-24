@@ -17,8 +17,7 @@ interface SearchResult {
 export default function ResearchAssistant() {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<ResearchTopic>('market_trends');
-  const [artistGenre, setArtistGenre] = useState('');
-  const [customQuery, setCustomQuery] = useState('');
+  const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [error, setError] = useState('');
 
@@ -44,8 +43,7 @@ export default function ResearchAssistant() {
         },
         body: JSON.stringify({
           topic: selectedTopic,
-          genre: artistGenre,
-          customQuery,
+          customQuery: query,
         }),
       });
 
@@ -79,7 +77,7 @@ export default function ResearchAssistant() {
     <>
       <Navbar />
       <main className="min-h-screen pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-3xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,60 +93,44 @@ export default function ResearchAssistant() {
 
           <motion.form
             onSubmit={handleSubmit}
-            className="space-y-8 bg-white rounded-2xl p-8 shadow-lg"
+            className="space-y-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Topic Selection */}
-            <div className="space-y-4">
-              <label className="block text-lg font-medium mb-2">Research Topic</label>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {topics.map((topic) => (
-                  <button
-                    key={topic.id}
-                    type="button"
-                    onClick={() => setSelectedTopic(topic.id as ResearchTopic)}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      selectedTopic === topic.id
-                        ? 'border-black bg-black text-white'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    <div className="text-2xl mb-2">{topic.icon}</div>
-                    <div className="font-medium text-sm">{topic.label}</div>
-                  </button>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {topics.map((topic) => (
+                <button
+                  key={topic.id}
+                  type="button"
+                  onClick={() => setSelectedTopic(topic.id as ResearchTopic)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+                    selectedTopic === topic.id
+                      ? 'bg-black text-white'
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                  }`}
+                >
+                  <span>{topic.icon}</span>
+                  <span className="text-sm font-medium">{topic.label}</span>
+                </button>
+              ))}
             </div>
 
-            {/* Genre Input */}
-            <div className="space-y-2">
-              <label className="block text-lg font-medium">Genre/Style</label>
-              <input
-                type="text"
-                value={artistGenre}
-                onChange={(e) => setArtistGenre(e.target.value)}
-                className="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-black focus:ring-0 transition-colors"
-                placeholder="e.g., Hip Hop, Rock, Electronic"
-              />
-            </div>
-
-            {/* Custom Query */}
-            <div className="space-y-2">
-              <label className="block text-lg font-medium">Specific Questions or Topics</label>
+            {/* Query Input */}
+            <div>
               <textarea
-                value={customQuery}
-                onChange={(e) => setCustomQuery(e.target.value)}
-                className="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-black focus:ring-0 transition-colors h-32"
-                placeholder="Enter any specific questions or topics you'd like to research..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full p-4 rounded-xl border border-gray-200 focus:border-black focus:ring-0 transition-colors h-32 resize-none"
+                placeholder="What would you like to research about the music industry?"
               />
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isLoading || !query.trim()}
               className="w-full bg-black text-white py-4 px-8 rounded-xl text-lg font-medium hover:bg-black/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? 'Researching...' : 'Research Now'}
@@ -181,12 +163,16 @@ export default function ResearchAssistant() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-6 shadow-lg"
+                  className="bg-white rounded-xl p-6 shadow-lg border border-gray-100"
                 >
                   <h3 className="text-xl font-medium mb-2">
-                    <a href={result.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
-                      {result.title}
-                    </a>
+                    {result.url ? (
+                      <a href={result.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+                        {result.title}
+                      </a>
+                    ) : (
+                      result.title
+                    )}
                   </h3>
                   {result.published_date && (
                     <p className="text-sm text-gray-500 mb-2">Published: {result.published_date}</p>
