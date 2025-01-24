@@ -402,11 +402,14 @@ export default function PressKit() {
                 <p className="mt-2 text-sm text-gray-500">High-resolution photo (landscape recommended)</p>
                 {previewUrl && (
                   <div className="mt-4">
+                    {/* Using img element for file upload preview since next/image doesn't support blob URLs */}
                     <img 
                       src={previewUrl} 
-                      alt="Press photo preview" 
-                      className="max-h-[200px] rounded-xl object-cover"
+                      alt="Preview"
+                      className="max-w-full h-auto rounded-lg"
+                      style={{ maxHeight: '300px' }}
                     />
+                    <p className="text-sm text-gray-500 mt-2">Preview of selected photo</p>
                   </div>
                 )}
               </div>

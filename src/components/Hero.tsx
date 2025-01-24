@@ -33,12 +33,26 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center">
           <h1 className="text-[72px] md:text-[96px] font-bold tracking-[-0.02em] leading-[1.1] text-center mb-6 text-black font-jakarta">
-            Music, 🤝 Meet
-            <span className="block mt-1">Your AI Agent.</span>
+            <span className="md:hidden">
+              Musicians,
+              <span className="block">🤝 Meet</span>
+              <span className="block">Your 🤖</span>
+              <span className="block">AI Agent.</span>
+            </span>
+            <span className="hidden md:block">
+              Musicians, 🤝 Meet
+              <span className="block mt-1">Your 🤖 AI Agent.</span>
+            </span>
           </h1>
           
           <p className="text-[20px] md:text-[24px] text-gray-600 text-center max-w-[800px] mx-auto leading-relaxed mb-10">
-            Deploy a team of robots that work 24/7 to grow your career.
+            <span className="md:hidden">
+              Deploy a team of robots that work 24/7<br />
+              to grow your career.
+            </span>
+            <span className="hidden md:block">
+              Deploy a team of robots that work 24/7 to grow your career.
+            </span>
           </p>
 
           <motion.div 
@@ -63,7 +77,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full max-w-[800px] mx-auto relative"
           >
-            <div className="relative w-full h-[500px]">
+            <div className="relative w-full h-[500px] md:h-[500px]">
               <Image
                 src="/Recoup Website.svg"
                 alt="Recoup Website Interface"
@@ -75,24 +89,18 @@ export default function Hero() {
               {/* Fan Analysis Terminal */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.6, x: -200, y: 150 }}
-                animate={{ opacity: 1, scale: 1, x: -50, y: 50 }}
+                animate={{ opacity: 1, scale: 1, x: -20, y: 30 }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                transition={{ 
-                  duration: 0.8,
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 12
-                }}
-                className="absolute left-[160px] top-[80px] w-[280px] bg-[#111111] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.2)] border border-white/10 backdrop-blur-xl"
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden md:block absolute left-[80px] top-[40px] w-[280px] bg-[#111111] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.2)] border border-white/10 backdrop-blur-xl"
               >
-                <div className="flex items-center gap-2 bg-[#1C1C1C] px-4 py-3 border-b border-white/10">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
+                <div className="flex items-center gap-1.5 md:gap-2 bg-[#1C1C1C] px-2 md:px-4 py-2 md:py-3 border-b border-white/10">
+                  <div className="flex gap-1 md:gap-1.5">
+                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#FF5F56]"></div>
+                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#FFBD2E]"></div>
+                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#27C93F]"></div>
                   </div>
-                  <div className="text-[12px] text-white/60 ml-2 font-mono tracking-tight">fan-analysis</div>
+                  <div className="text-[10px] md:text-[12px] text-white/60 ml-1 md:ml-2 font-mono tracking-tight">fan-analysis</div>
                 </div>
                 
                 <div className="p-5 text-[12px] font-mono text-white/90 leading-relaxed">
@@ -130,14 +138,8 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.6, x: 150, y: -100 }}
                 animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                transition={{ 
-                  duration: 0.8,
-                  delay: 0.3,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 12
-                }}
-                className="absolute right-[80px] top-[-20px] w-[300px] bg-[#111111] rounded-2xl overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.25)] border border-white/5 backdrop-blur-xl z-10"
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden md:block absolute right-[40px] top-[-10px] w-[300px] bg-[#111111] rounded-2xl overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.25)] border border-white/5 backdrop-blur-xl z-10"
               >
                 <div className="flex items-center gap-2 bg-[#1C1C1C] px-4 py-3 border-b border-white/5">
                   <div className="flex gap-1.5">
@@ -178,10 +180,10 @@ export default function Hero() {
                 />
               </motion.div>
 
-              {/* Revenue Projection Terminal */}
+              {/* Revenue Projection Terminal - Mobile & Desktop */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.6, x: 200, y: 150 }}
-                animate={{ opacity: 1, scale: 1, x: 0, y: 100 }}
+                animate={{ opacity: 1, scale: 1, x: 0, y: 60 }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 transition={{ 
                   duration: 0.8,
@@ -190,7 +192,7 @@ export default function Hero() {
                   stiffness: 100,
                   damping: 12
                 }}
-                className="absolute right-[0px] bottom-[40px] w-[320px] bg-[#111111] rounded-2xl overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.3)] border border-white/10 backdrop-blur-xl"
+                className="absolute left-[35%] -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[20px] top-[100px] md:top-auto md:bottom-[20px] w-[280px] md:w-[320px] bg-[#111111] rounded-xl md:rounded-2xl overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.3)] border border-white/10 backdrop-blur-xl"
               >
                 <div className="flex items-center gap-2 bg-[#1C1C1C] px-4 py-3 border-b border-white/10">
                   <div className="flex gap-1.5">

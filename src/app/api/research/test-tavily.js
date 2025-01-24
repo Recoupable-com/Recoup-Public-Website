@@ -1,8 +1,8 @@
 // Simple test script for Tavily API
-const { tavily } = require('@tavily/core');
+import { Tavily } from '@tavily/core';
 
 async function testTavilyAPI() {
-  const client = new tavily({
+  const client = new Tavily({
     apiKey: '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'
   });
 

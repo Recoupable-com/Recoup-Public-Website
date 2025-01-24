@@ -1,13 +1,13 @@
-import { blogPosts, BlogPost } from './research/page';
+import { articles } from './research/articles';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://recoup.com';
 
-  // Get all blog posts
-  const posts = blogPosts.map((post: BlogPost) => ({
-    url: `${baseUrl}${post.href}`,
-    lastModified: new Date(post.date),
+  // Get all articles
+  const posts = Object.entries(articles).map(([slug, article]) => ({
+    url: `${baseUrl}/research/${slug}`,
+    lastModified: new Date(article.date),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
