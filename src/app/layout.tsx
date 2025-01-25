@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Plus_Jakarta_Sans, Inter_Tight, Rampart_One } from "next/font/google";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plusJakarta.variable} ${interTight.variable} ${rampartOne.variable} font-inter`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
