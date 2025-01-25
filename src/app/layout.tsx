@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Plus_Jakarta_Sans, Inter_Tight, Rampart_One } from "next/font/google";
 import "./globals.css";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={`${plusJakarta.variable} ${interTight.variable} ${rampartOne.variable} font-inter`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
