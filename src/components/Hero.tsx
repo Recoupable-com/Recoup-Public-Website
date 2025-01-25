@@ -36,21 +36,21 @@ export default function Hero() {
             <span className="md:hidden">
               AI Agents for
               <span className="block">Music Artists</span>
-              <span className="block">and Teams.</span>
+              <span className="block">and Labels.</span>
             </span>
             <span className="hidden md:block">
               AI Agents for Music
-              <span className="block mt-1">Artists and Teams.</span>
+              <span className="block mt-1">Artists and Labels.</span>
             </span>
           </h1>
           
           <p className="text-[20px] md:text-[24px] text-gray-600 text-center max-w-[800px] mx-auto leading-relaxed mb-10">
             <span className="md:hidden">
-              Deploy a team of robots that work 24/7<br />
-              to grow your career.
+              Deploy robots that work 24/7<br />
+              to help you grow.
             </span>
             <span className="hidden md:block">
-              Deploy a team of robots that work 24/7 to grow your career.
+              Deploy robots that work 24/7 to help you grow.
             </span>
           </p>
 
