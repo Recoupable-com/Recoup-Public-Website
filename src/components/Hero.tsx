@@ -34,14 +34,13 @@ export default function Hero() {
         <div className="text-center">
           <h1 className="text-[72px] md:text-[96px] font-bold tracking-[-0.02em] leading-[1.1] text-center mb-6 text-black font-jakarta">
             <span className="md:hidden">
-              Musicians,
-              <span className="block">🤝 Meet</span>
-              <span className="block">Your 🤖</span>
-              <span className="block">AI Agent.</span>
+              AI Agents for
+              <span className="block">Music Artists</span>
+              <span className="block">and Teams.</span>
             </span>
             <span className="hidden md:block">
-              Musicians, 🤝 Meet
-              <span className="block mt-1">Your 🤖 AI Agent.</span>
+              AI Agents for Music
+              <span className="block mt-1">Artists and Teams.</span>
             </span>
           </h1>
           
