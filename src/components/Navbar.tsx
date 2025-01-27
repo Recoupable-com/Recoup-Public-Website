@@ -63,13 +63,13 @@ export default function Navbar() {
               {/* Right Side */}
               <div className="hidden md:flex flex-shrink-0 w-[200px] justify-end items-center gap-2">
                 <Link 
-                  href="/login"
+                  href="https://chat.recoupable.com/signin"
                   className="text-[#09090B] text-[13px] px-4 py-1.5 rounded-lg hover:opacity-70 transition-opacity font-medium"
                 >
                   Log in
                 </Link>
                 <Link 
-                  href="/signup"
+                  href="https://chat.recoupable.com/signin"
                   className="bg-black text-white text-[13px] px-4 py-1.5 rounded-lg hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
                 >
                   Sign up
@@ -105,6 +105,12 @@ export default function Navbar() {
                     </Link>
                     <Link href="/pricing" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
                       Pricing
+                    </Link>
+                    <Link href="https://chat.recoupable.com/signin" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                      Log in
+                    </Link>
+                    <Link href="https://chat.recoupable.com/signin" className="block px-3 py-2 text-base font-medium bg-black text-white hover:bg-black/90 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                      Sign up
                     </Link>
                   </div>
                 </div>

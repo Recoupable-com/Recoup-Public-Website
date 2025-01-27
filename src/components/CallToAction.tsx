@@ -22,7 +22,7 @@ export default function CallToAction() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="/signup"
+                href="https://chat.recoupable.com/signin"
                 className="bg-white text-black px-8 py-4 rounded-xl text-[15px] font-medium hover:bg-white/90 transition-all hover:scale-105 hover:shadow-xl"
               >
                 Get started for free

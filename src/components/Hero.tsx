@@ -46,11 +46,11 @@ export default function Hero() {
           
           <p className="text-[20px] md:text-[24px] text-gray-600 text-center max-w-[800px] mx-auto leading-relaxed mb-10">
             <span className="md:hidden">
-              Deploy robots that work 24/7<br />
+              Recoup is a Music Manager working 24/7<br />
               to help you grow.
             </span>
             <span className="hidden md:block">
-              Deploy robots that work 24/7 to help you grow.
+              Recoup is a Music Manager working 24/7 to help you grow.
             </span>
           </p>
 
@@ -61,7 +61,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <Link 
-              href="/signup"
+              href="https://chat.recoupable.com/signin"
               className="bg-black text-white text-[15px] px-6 py-2.5 rounded-lg hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
             >
               Get Started Today For Free →
