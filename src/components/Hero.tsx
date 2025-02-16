@@ -8,6 +8,15 @@ import { useEffect, useState } from 'react';
 export default function Hero() {
   const [isClient, setIsClient] = useState(false);
 
+  const agents = [
+    { title: 'A&R Agent', position: 'top-[-20px] left-16', color: 'text-blue-500' },
+    { title: 'Marketing Agent', position: 'top-8 right-24', color: 'text-purple-500' },
+    { title: 'Strategy Agent', position: 'top-32 right-[-10px]', color: 'text-yellow-500' },
+    { title: 'Growth Agent', position: 'bottom-12 right-8', color: 'text-green-500' },
+    { title: 'Analytics Agent', position: 'bottom-[-10px] left-32', color: 'text-orange-500' },
+    { title: 'Content Agent', position: 'top-32 left-[-20px]', color: 'text-pink-500' }
+  ];
+
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -18,9 +27,9 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
             <h1 className="text-[42px] sm:text-[56px] lg:text-[72px] leading-[1.05] tracking-[-0.02em] mb-6 font-medium">
-              Meet Your AI Agent
+              A Record Label
               <br />
-              for Music Success
+              in Your Pocket
             </h1>
           </div>
         </div>
@@ -32,28 +41,60 @@ export default function Hero() {
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-visible">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center">
-          <h1 className="text-[72px] md:text-[96px] font-bold tracking-[-0.02em] leading-[1.1] text-center mb-6 text-black font-jakarta">
-            <span className="md:hidden">
-              AI Agents for
-              <span className="block">Music Artists</span>
-              <span className="block">and Labels.</span>
-            </span>
-            <span className="hidden md:block">
-              AI Agents for Music
-              <span className="block mt-1">Artists and Labels.</span>
-            </span>
-          </h1>
-          
-          <p className="text-[20px] md:text-[24px] text-gray-600 text-center max-w-[800px] mx-auto leading-relaxed mb-10">
-            <span className="md:hidden">
-              Recoup is a Music Manager working 24/7<br />
-              to help you grow.
-            </span>
-            <span className="hidden md:block">
-              Recoup is a Music Manager working 24/7 to help you grow.
-            </span>
+          {/* Desktop Heading with Agent Tags */}
+          <div className="hidden md:block relative mb-6">
+            {/* Agent Tags */}
+            {agents.map((agent, index) => (
+              <motion.div
+                key={agent.title}
+                className={`absolute ${agent.position} flex items-center gap-2`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: index * 0.15,
+                  ease: [0.23, 1, 0.32, 1]
+                }}
+              >
+                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-black/5">
+                  <svg 
+                    width="14" 
+                    height="14" 
+                    viewBox="0 0 14 14" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={agent.color}
+                  >
+                    <circle cx="7" cy="7" r="4" fill="currentColor"/>
+                  </svg>
+                  <span className="text-[13px] font-medium text-black/80">
+                    {agent.title}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+
+            <h1 className="text-[120px] leading-[1.1] tracking-tight font-semibold">
+              A Record Label
+              <span className="block">in Your Pocket</span>
+            </h1>
+          </div>
+
+          {/* Mobile Heading */}
+          <div className="block md:hidden mb-6">
+            <h1 className="text-[56px] leading-[1.1] tracking-tight font-semibold">
+              A Record Label
+              <span className="block">in Your Pocket</span>
+            </h1>
+          </div>
+
+          {/* Description */}
+          <p className="text-gray-500 text-xl text-center mb-8 max-w-[600px] mx-auto">
+            More fans. More revenue. Less work.
+            <span className="block mt-2">AI agents built for music professionals.</span>
           </p>
 
+          {/* CTA Button */}
           <motion.div 
             className="flex flex-col items-center justify-center mb-20"
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +103,7 @@ export default function Hero() {
           >
             <Link 
               href="https://chat.recoupable.com/signin"
-              className="bg-black text-white text-[15px] px-6 py-2.5 rounded-lg hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
+              className="bg-black text-white text-[15px] px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
             >
               Get Started Today For Free →
             </Link>
