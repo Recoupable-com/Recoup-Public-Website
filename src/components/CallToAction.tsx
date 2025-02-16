@@ -28,7 +28,9 @@ export default function CallToAction() {
                 Get started for free
               </Link>
               <Link
-                href="/demo"
+                href="https://calendly.com/sidney-recoupable/recoup-product-demo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 rounded-xl text-[15px] font-medium border border-white/20 hover:bg-white/10 transition-all"
               >
                 Request a demo

@@ -105,11 +105,11 @@ export default function Hero() {
                 <div className="p-5 text-[12px] font-mono text-white/90 leading-relaxed">
                   <div className="space-y-4">
                     {[
-                      { text: "> Analyzing engagement...", color: "text-purple-400", delay: 0 },
-                      { text: "• Comment rate: 4.2%", color: "text-blue-400", delay: 0.5 },
-                      { text: "• Save rate: 8.7%", color: "text-green-400", delay: 1 },
-                      { text: "> High engagement times:", color: "text-white/90", delay: 1.5 },
-                      { text: "• Peak: 8PM-10PM EST", color: "text-yellow-400", delay: 2 }
+                      { text: "> Analyzing fan behavior...", color: "text-purple-400", delay: 0 },
+                      { text: "• Active fans: 2.4K", color: "text-blue-400", delay: 0.5 },
+                      { text: "• Fan growth: +12%", color: "text-green-400", delay: 1 },
+                      { text: "> Peak fan activity:", color: "text-white/90", delay: 1.5 },
+                      { text: "• Most active: 8PM-10PM EST", color: "text-yellow-400", delay: 2 }
                     ].map((item, index) => (
                       <motion.div
                         key={index}
