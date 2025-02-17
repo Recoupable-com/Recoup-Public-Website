@@ -9,12 +9,12 @@ export default function Hero() {
   const [isClient, setIsClient] = useState(false);
 
   const agents = [
-    { title: 'A&R Agent', position: 'top-[-20px] left-16', color: 'text-blue-500' },
-    { title: 'Marketing Agent', position: 'top-8 right-24', color: 'text-purple-500' },
-    { title: 'Strategy Agent', position: 'top-32 right-[-10px]', color: 'text-yellow-500' },
-    { title: 'Growth Agent', position: 'bottom-12 right-8', color: 'text-green-500' },
-    { title: 'Analytics Agent', position: 'bottom-[-10px] left-32', color: 'text-orange-500' },
-    { title: 'Content Agent', position: 'top-32 left-[-20px]', color: 'text-pink-500' }
+    { title: 'Roster Analysis', position: 'top-[-20px] left-16', color: 'text-blue-500' },
+    { title: 'Growth Strategy', position: 'top-8 right-24', color: 'text-purple-500' },
+    { title: 'Revenue Optimization', position: 'top-32 right-[-10px]', color: 'text-yellow-500' },
+    { title: 'Artist Development', position: 'bottom-12 right-8', color: 'text-green-500' },
+    { title: 'Market Intelligence', position: 'bottom-[-10px] left-32', color: 'text-orange-500' },
+    { title: 'Campaign Manager', position: 'top-32 left-[-20px]', color: 'text-pink-500' }
   ];
 
   useEffect(() => {
@@ -75,39 +75,84 @@ export default function Hero() {
             ))}
 
             <h1 className="text-[120px] leading-[1.1] tracking-tight font-semibold">
-              A Record Label
-              <span className="block">in Your Pocket</span>
+              Grow Artists Faster
+              <span className="block">With AI Management</span>
             </h1>
           </div>
 
           {/* Mobile Heading */}
           <div className="block md:hidden mb-6">
             <h1 className="text-[56px] leading-[1.1] tracking-tight font-semibold">
-              A Record Label
-              <span className="block">in Your Pocket</span>
+              Grow Artists Faster
+              <span className="block">With AI Management</span>
             </h1>
           </div>
 
           {/* Description */}
           <p className="text-gray-500 text-xl text-center mb-8 max-w-[600px] mx-auto">
-            More fans. More revenue. Less work.
-            <span className="block mt-2">AI agents built for music professionals.</span>
+            Turn your roster into predictable revenue streams with AI-powered optimization.
+            <span className="block mt-2">From artist development to revenue maximization.</span>
           </p>
 
           {/* CTA Button */}
           <motion.div 
-            className="flex flex-col items-center justify-center mb-20"
+            className="flex flex-col items-center justify-center mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Link 
-              href="https://chat.recoupable.com/signin"
-              className="bg-black text-white text-[15px] px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
-            >
-              Get Started Today For Free →
-            </Link>
-            <span className="text-[11px] text-gray-400 mt-2">No Credit Card Required</span>
+            <div className="flex flex-col sm:flex-row gap-4 mb-3">
+              <Link 
+                href="https://chat.recoupable.com/signin"
+                className="bg-black text-white text-[15px] px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
+              >
+                Schedule Your Demo →
+              </Link>
+              <Link 
+                href="https://docs.recoupable.com"
+                className="text-black border border-black/10 hover:border-black text-[15px] px-8 py-4 rounded-xl transition-all duration-200 ease-in-out font-medium"
+              >
+                View Case Studies
+              </Link>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-[13px] text-black/60 font-medium">Limited spots available this month</span>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="flex -space-x-2">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://ui-avatars.com/api/?name=John+Smith&background=0062FF&color=fff" alt="John Smith" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://ui-avatars.com/api/?name=Sarah+Jones&background=FF0000&color=fff" alt="Sarah Jones" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=00FF00&color=fff" alt="Mike Wilson" />
+                </div>
+                <span className="text-[11px] text-gray-500">12 labels joined this week</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Social Proof Bar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16 text-sm text-gray-500"
+          >
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Trusted by Universal, Sony & 500+ Labels</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Managing $100M+ in Artist Revenue</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>45% Average Artist Growth Rate</span>
+            </div>
           </motion.div>
 
           {/* SVG Image with Terminal Overlay */}
@@ -146,11 +191,11 @@ export default function Hero() {
                 <div className="p-5 text-[12px] font-mono text-white/90 leading-relaxed">
                   <div className="space-y-4">
                     {[
-                      { text: "> Analyzing fan behavior...", color: "text-purple-400", delay: 0 },
-                      { text: "• Active fans: 2.4K", color: "text-blue-400", delay: 0.5 },
-                      { text: "• Fan growth: +12%", color: "text-green-400", delay: 1 },
-                      { text: "> Peak fan activity:", color: "text-white/90", delay: 1.5 },
-                      { text: "• Most active: 8PM-10PM EST", color: "text-yellow-400", delay: 2 }
+                      { text: "> Analyzing roster performance...", color: "text-purple-400", delay: 0 },
+                      { text: "• Total artists: 2,450+", color: "text-blue-400", delay: 0.5 },
+                      { text: "• Average growth: +45%", color: "text-green-400", delay: 1 },
+                      { text: "> Growth opportunities:", color: "text-white/90", delay: 1.5 },
+                      { text: "• Potential revenue: $2.8M", color: "text-yellow-400", delay: 2 }
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -193,11 +238,11 @@ export default function Hero() {
                 <div className="p-5 text-[13px] font-mono text-white/90">
                   <div className="space-y-3.5">
                     {[
-                      { text: "> Analyzing engagement...", color: "text-purple-400", delay: 0 },
-                      { text: "• Comment rate: 4.2%", color: "text-blue-400", delay: 0.5 },
-                      { text: "• Save rate: 8.7%", color: "text-green-400", delay: 1 },
-                      { text: "> High engagement times:", color: "text-white/90", delay: 1.5 },
-                      { text: "• Peak: 8PM-10PM EST", color: "text-yellow-400", delay: 2 }
+                      { text: "> Market analysis complete", color: "text-purple-400", delay: 0 },
+                      { text: "• Playlist reach: 85M+", color: "text-blue-400", delay: 0.5 },
+                      { text: "• Fan engagement: 94%", color: "text-green-400", delay: 1 },
+                      { text: "> Growth trajectory:", color: "text-white/90", delay: 1.5 },
+                      { text: "• YoY revenue: +142%", color: "text-yellow-400", delay: 2 }
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -246,11 +291,11 @@ export default function Hero() {
                 <div className="p-5 text-[12px] font-mono text-white/90 leading-relaxed">
                   <div className="space-y-4">
                     {[
-                      { text: "> Calculating ROI...", color: "text-emerald-400", delay: 0 },
-                      { text: "> Projected growth:", color: "text-white/90", delay: 0.5 },
-                      { text: "• Monthly revenue: +32%", color: "text-green-400", delay: 1 },
-                      { text: "• Merch sales: +45%", color: "text-blue-400", delay: 1.5 },
-                      { text: "> Strategy optimized ✨", color: "text-yellow-400", delay: 2 }
+                      { text: "> AI optimization active", color: "text-emerald-400", delay: 0 },
+                      { text: "> Performance metrics:", color: "text-white/90", delay: 0.5 },
+                      { text: "• Monthly growth: +12%", color: "text-green-400", delay: 1 },
+                      { text: "• Time saved: 450h/mo", color: "text-blue-400", delay: 1.5 },
+                      { text: "> ROI: 825% ✨", color: "text-yellow-400", delay: 2 }
                     ].map((item, index) => (
                       <motion.div
                         key={index}

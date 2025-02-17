@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ export default function Navbar() {
   }, []);
 
   if (!isClient) {
-    return null; // Return null on server-side to prevent hydration mismatch
+    return null;
   }
 
   return (
@@ -24,51 +24,58 @@ export default function Navbar() {
         style={{ zIndex: 30 }}
       />
       
-      <div className="fixed top-4 left-4 right-4 z-40">
-        <nav className="relative bg-white/100 shadow-[0_2px_3px_-1px_rgba(0,0,0,0.07),0_1px_0px_0px_rgba(0,0,0,0.03)] rounded-xl transition-all duration-200 ease-in-out max-w-[800px] mx-auto border border-[#E5E5E5]">
-          <div className="px-2 group">
+      <div className="fixed top-6 left-6 right-6 z-40">
+        <nav className="relative bg-white shadow-[0_2px_3px_-1px_rgba(0,0,0,0.07),0_1px_0px_0px_rgba(0,0,0,0.03)] rounded-[20px] transition-all duration-200 ease-in-out max-w-7xl mx-auto border border-[#E5E5E5]">
+          <div className="px-6 py-4">
             {/* Main Navigation */}
-            <div className="flex justify-between items-center h-[48px]">
+            <div className="flex justify-between items-center">
               {/* Logo */}
-              <div className="flex-shrink-0 w-[120px] flex items-center">
-                <Link href="/" className="relative w-[140px] h-10">
+              <div className="flex-shrink-0 flex items-center">
+                <Link href="/" className="flex items-center">
                   <Image
                     src="/Recoup Logo Black.svg"
                     alt="Recoup"
-                    fill
-                    className="object-contain"
+                    width={120}
+                    height={34}
+                    className="h-8 w-auto"
                     priority
                   />
                 </Link>
               </div>
 
               {/* Center Navigation */}
-              <div className="hidden md:flex items-center gap-6 font-jakarta text-[14px] text-[#09090B]">
+              <div className="hidden md:flex items-center gap-8 font-medium text-[15px]">
                 <Link 
-                  href="/free-tools"
-                  className="hover:opacity-70 transition-opacity font-medium"
+                  href="/solutions"
+                  className="hover:opacity-70 transition-opacity"
                 >
-                  Free Tools
+                  Solutions
                 </Link>
                 
+                <Link href="/case-studies" className="hover:opacity-70 transition-opacity">
+                  Case Studies
+                </Link>
+
                 <Link href="/research" className="hover:opacity-70 transition-opacity">
-                  Research
+                  Industry Research
                 </Link>
               </div>
 
               {/* Right Side */}
-              <div className="hidden md:flex flex-shrink-0 w-[200px] justify-end items-center gap-2">
+              <div className="hidden md:flex items-center gap-4">
                 <Link 
-                  href="https://chat.recoupable.com/signin"
-                  className="text-[#09090B] text-[13px] px-4 py-1.5 rounded-lg hover:opacity-70 transition-opacity font-medium"
+                  href="https://calendly.com/sidney-recoupable/recoup-product-demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[15px] px-5 py-2.5 hover:opacity-70 transition-opacity font-medium"
                 >
-                  Log in
+                  Book Demo
                 </Link>
                 <Link 
                   href="https://chat.recoupable.com/signin"
-                  className="bg-black text-white text-[13px] px-4 py-1.5 rounded-lg hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
+                  className="bg-black text-white text-[15px] px-5 py-2.5 rounded-xl hover:opacity-90 transition-all duration-200 ease-in-out font-medium"
                 >
-                  Sign up
+                  Get Started
                 </Link>
               </div>
 
@@ -90,20 +97,33 @@ export default function Navbar() {
               </div>
 
               {/* Mobile Menu */}
-              <div className={`absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg transition-all duration-200 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-                <div className="py-4 px-6 space-y-4">
-                  <div className="space-y-2">
-                    <Link href="/free-tools" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                      Free Tools
+              <div className={`absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg rounded-b-[20px] transition-all duration-200 mt-4 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                <div className="p-6 space-y-4">
+                  <div className="space-y-3">
+                    <Link href="/solutions" className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>
+                      Solutions
                     </Link>
-                    <Link href="/research" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                      Research
+                    <Link href="/case-studies" className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>
+                      Case Studies
                     </Link>
-                    <Link href="https://chat.recoupable.com/signin" className="block px-3 py-2 text-base hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                      Log in
+                    <Link href="/research" className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>
+                      Industry Research
                     </Link>
-                    <Link href="https://chat.recoupable.com/signin" className="block px-3 py-2 text-base font-medium bg-black text-white hover:bg-black/90 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                      Sign up
+                    <Link 
+                      href="https://calendly.com/sidney-recoupable/recoup-product-demo"
+                      target="_blank"
+                      rel="noopener noreferrer" 
+                      className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" 
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Book Demo
+                    </Link>
+                    <Link 
+                      href="https://chat.recoupable.com/signin" 
+                      className="block px-4 py-2 text-[15px] font-medium bg-black text-white hover:bg-black/90 rounded-xl" 
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Get Started
                     </Link>
                   </div>
                 </div>

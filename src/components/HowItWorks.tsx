@@ -5,108 +5,108 @@ import { motion } from 'framer-motion';
 export default function HowItWorks() {
   const steps = [
     {
-      number: "01",
-      title: "Subscribe",
-      description: "Choose your plan and create your account.",
+      title: "Connect Your Platforms",
+      description: "One-click integration with Spotify, Apple Music, social media, and more. Import your entire roster's data instantly.",
       icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
         </svg>
-      )
+      ),
+      stats: "5-minute setup"
     },
     {
-      number: "02",
-      title: "Deploy",
-      description: "Connect your music platforms in one click.",
+      title: "AI Analysis & Strategy",
+      description: "Our AI analyzes your roster's performance, identifies growth opportunities, and creates personalized strategies for each artist.",
       icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      stats: "24/7 optimization"
+    },
+    {
+      title: "Automated Execution",
+      description: "Our AI agents work around the clock to implement strategies, engage fans, and optimize performance across all platforms.",
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
-      )
+      ),
+      stats: "450+ hours saved monthly"
     },
     {
-      number: "03",
-      title: "Grow",
-      description: "Let AI help you reach new heights.",
+      title: "Growth & Insights",
+      description: "Track your roster's growth with real-time analytics. Get actionable insights and recommendations for continuous improvement.",
       icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
-      )
+      ),
+      stats: "142% average growth"
     }
   ];
 
   return (
-    <section className="py-32 bg-zinc-900 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-[160px] pointer-events-none" />
+    <section className="py-24 bg-black text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-base font-semibold tracking-wide uppercase text-gray-200">How It Works</h2>
+          <p className="mt-2 text-4xl font-bold sm:text-5xl">
+            AI-Powered Growth in 4 Steps
+          </p>
+          <p className="mt-4 max-w-2xl text-xl text-gray-400 mx-auto">
+            From setup to scale, our AI handles everything
+          </p>
+        </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4 relative">
-        <div className="text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block bg-gradient-to-r from-blue-500/20 to-blue-400/20 rounded-full px-4 py-1.5 mb-6"
-          >
-            <span className="text-blue-200 font-medium">
-              Simple 3-Step Process
-            </span>
-          </motion.div>
+        <div className="relative mt-16">
+          {/* Connection Lines */}
+          <div className="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gray-800 -translate-y-1/2" />
           
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-6xl font-medium text-white mb-6 tracking-tight"
-          >
-            How Recoup works
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed"
-          >
-            Get started in minutes and let our AI help you grow your music career.
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 rounded-3xl p-8 hover:border-zinc-600/50 transition-all duration-300 group"
-            >
-              <div className="bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-2xl p-4 w-fit mb-8 ring-1 ring-white/20 group-hover:ring-white/30 transition-all duration-300">
-                <div className="text-white">
-                  {step.icon}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-4 relative">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="relative"
+              >
+                <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all duration-200 group">
+                  <div className="relative z-10">
+                    {/* Step Number */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-medium">
+                      {index + 1}
+                    </div>
+                    
+                    {/* Icon */}
+                    <div className="bg-gray-800 text-white w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-200">
+                      {step.icon}
+                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                    <p className="text-gray-400 text-base leading-relaxed mb-4">{step.description}</p>
+                    
+                    {/* Stats */}
+                    <div className="flex items-center text-sm text-emerald-400 font-medium">
+                      <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {step.stats}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="text-zinc-400 text-7xl font-medium mb-6 group-hover:text-zinc-300 transition-colors duration-300">
-                {String(step.number).padStart(2, '0')}
-              </div>
-              
-              <h3 className="text-white text-2xl md:text-3xl font-medium mb-4 group-hover:text-white/90 transition-colors duration-300">
-                {step.title}
-              </h3>
-              
-              <p className="text-gray-300 text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

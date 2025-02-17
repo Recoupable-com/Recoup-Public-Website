@@ -1,9 +1,10 @@
 import Hero from '@/components/Hero';
-import Partners from '@/components/Partners';
 import Features from '@/components/Features';
-import SuccessStories from '@/components/SuccessStories';
-import CallToAction from '@/components/CallToAction';
-import Footer from '@/components/Footer';
+import HowItWorks from '@/components/HowItWorks';
+import Compare from '@/components/Compare';
+import Testimonials from '@/components/Testimonials';
+import ROICalculator from '@/components/ROICalculator';
+import CTA from '@/components/CTA';
 import Navbar from '@/components/Navbar';
 
 export default function Home() {
@@ -11,11 +12,12 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Partners />
       <Features />
-      <SuccessStories />
-      <CallToAction />
-      <Footer />
+      <HowItWorks />
+      <Compare />
+      <ROICalculator />
+      <Testimonials />
+      <CTA />
     </main>
   );
 }
