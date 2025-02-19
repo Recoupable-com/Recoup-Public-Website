@@ -116,15 +116,15 @@ export default function Compare() {
                 </div>
 
                 {/* Comparison Boxes */}
-                <div className="flex gap-4">
-                  <div className="flex-1 p-4 bg-white border border-[#DBDBDB] rounded-xl">
-                    <p className="text-sm text-neutral-500 mb-2 font-plus-jakarta">Traditional Method</p>
-                    <p className="font-medium text-neutral-900 font-plus-jakarta">{item.traditional}</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex-1 p-3 sm:p-4 bg-white border border-[#DBDBDB] rounded-xl">
+                    <p className="text-[11px] sm:text-sm text-neutral-500 mb-1 sm:mb-2 font-plus-jakarta">Traditional Method</p>
+                    <p className="text-sm sm:text-base font-medium text-neutral-900 font-plus-jakarta">{item.traditional}</p>
                   </div>
                   
-                  <div className="flex-1 p-4 bg-black text-white rounded-xl">
-                    <p className="text-sm mb-2 text-white/70 font-plus-jakarta">With Recoup</p>
-                    <p className="font-medium font-plus-jakarta">{item.recoupable}</p>
+                  <div className="flex-1 p-3 sm:p-4 bg-black text-white rounded-xl">
+                    <p className="text-[11px] sm:text-sm mb-1 sm:mb-2 text-white/70 font-plus-jakarta">With Recoup</p>
+                    <p className="text-sm sm:text-base font-medium font-plus-jakarta">{item.recoupable}</p>
                   </div>
                 </div>
               </div>

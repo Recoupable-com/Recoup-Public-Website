@@ -83,42 +83,46 @@ export default function ROICalculator() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               {/* Roster Size */}
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2 font-plus-jakarta">
-                  Artists in your roster
-                </label>
+                <div className="flex justify-between items-center mb-3">
+                  <label className="text-sm font-medium text-neutral-700 font-plus-jakarta">
+                    Artists in your roster
+                  </label>
+                  <span className="text-lg font-semibold text-black font-plus-jakarta">{rosterSize} artists</span>
+                </div>
                 <input
                   type="range"
                   min="1"
                   max="50"
                   value={rosterSize}
                   onChange={(e) => setRosterSize(parseInt(e.target.value))}
-                  className="w-full h-2 bg-[#F5F5F5] rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-[#F5F5F5] rounded-lg appearance-none cursor-pointer mb-2"
                   title="Size of roster"
                 />
-                <div className="flex justify-between mt-2">
+                <div className="flex justify-between">
                   <span className="text-sm text-neutral-600 font-plus-jakarta">1 artist</span>
-                  <span className="text-lg font-semibold text-black font-plus-jakarta">{rosterSize} artists</span>
                   <span className="text-sm text-neutral-600 font-plus-jakarta">50 artists</span>
                 </div>
               </div>
 
               {/* Staff Size */}
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2 font-plus-jakarta">
-                  Team members
-                </label>
+                <div className="flex justify-between items-center mb-3">
+                  <label className="text-sm font-medium text-neutral-700 font-plus-jakarta">
+                    Team members
+                  </label>
+                  <span className="text-lg font-semibold text-black font-plus-jakarta">{staffSize} people</span>
+                </div>
                 <input
                   type="range"
                   min="1"
                   max="50"
                   value={staffSize}
                   onChange={(e) => setStaffSize(parseInt(e.target.value))}
-                  className="w-full h-2 bg-[#F5F5F5] rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-[#F5F5F5] rounded-lg appearance-none cursor-pointer mb-2"
                   title="Size of staff"
                 />
-                <div className="flex justify-between mt-2">
+                <div className="flex justify-between">
                   <span className="text-sm text-neutral-600 font-plus-jakarta">1 person</span>
-                  <span className="text-lg font-semibold text-black font-plus-jakarta">{staffSize} people</span>
                   <span className="text-sm text-neutral-600 font-plus-jakarta">50 people</span>
                 </div>
               </div>
@@ -126,16 +130,16 @@ export default function ROICalculator() {
 
             {/* Results Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">              
-              <div className="p-6 bg-white border border-[#DBDBDB] rounded-xl">
-                <h4 className="text-sm text-neutral-500 mb-1 font-plus-jakarta">Time Saved Monthly</h4>
-                <p className="text-2xl font-bold text-black font-plus-jakarta">{results.hoursPerMonth} hours</p>
-                <p className="text-sm text-neutral-600 mt-2 font-plus-jakarta">Through AI-powered automation</p>
+              <div className="p-4 sm:p-6 bg-white border border-[#DBDBDB] rounded-xl">
+                <h4 className="text-xs sm:text-sm text-neutral-500 mb-1 font-plus-jakarta">Time Saved Monthly</h4>
+                <p className="text-xl sm:text-2xl font-bold text-black font-plus-jakarta">{results.hoursPerMonth} hours</p>
+                <p className="text-xs sm:text-sm text-neutral-600 mt-2 font-plus-jakarta">Through AI-powered automation</p>
               </div>
               
-              <div className="p-6 bg-black text-white rounded-xl">
-                <h4 className="text-sm text-white/70 mb-1 font-plus-jakarta">Value of Time Saved</h4>
-                <p className="text-2xl font-bold font-plus-jakarta">${results.annualSavings}/year</p>
-                <p className="text-sm text-white/70 mt-2 font-plus-jakarta">At $50/hour industry rate</p>
+              <div className="p-4 sm:p-6 bg-black text-white rounded-xl">
+                <h4 className="text-xs sm:text-sm text-white/70 mb-1 font-plus-jakarta">Value of Time Saved</h4>
+                <p className="text-xl sm:text-2xl font-bold font-plus-jakarta break-words">${results.annualSavings}/year</p>
+                <p className="text-xs sm:text-sm text-white/70 mt-2 font-plus-jakarta">At $50/hour industry rate</p>
               </div>
             </div>
 

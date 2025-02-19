@@ -108,16 +108,16 @@ export default function Features() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-white rounded-3xl border border-[#DBDBDB] overflow-hidden transition-all duration-300 hover:border-black hover:shadow-xl hover:-translate-y-1">
+              <div className="relative bg-white rounded-3xl border border-[#DBDBDB] overflow-hidden transition-all duration-300 hover:border-black hover:shadow-xl hover:translate-y-1">
                 {/* Metric Badge */}
-                <div className="absolute top-6 right-6">
-                  <div className="bg-black text-white px-4 py-2 rounded-xl">
-                    <p className="text-2xl font-bold">{feature.metric}</p>
-                    <p className="text-xs text-white/80">{feature.metricLabel}</p>
+                <div className="absolute top-6 right-4 sm:right-6">
+                  <div className="bg-black text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl">
+                    <p className="text-lg sm:text-2xl font-bold whitespace-nowrap">{feature.metric}</p>
+                    <p className="text-[10px] sm:text-xs text-white/80 whitespace-nowrap">{feature.metricLabel}</p>
                   </div>
                 </div>
 
-                <div className="relative p-8">
+                <div className="relative p-6 sm:p-8">
                   {/* Icon */}
                   <div className="mb-8">
                     <motion.div 

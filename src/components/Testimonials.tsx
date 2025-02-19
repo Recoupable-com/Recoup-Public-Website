@@ -84,33 +84,35 @@ export default function Testimonials() {
               className="group"
             >
               {/* Card */}
-              <div className="h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 hover:border-white/20 transition-all duration-300">
+              <div className="h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-4 sm:p-8 hover:border-white/20 transition-all duration-300">
                 {/* Quote */}
-                <div className="mb-8">
-                  <svg className="w-8 h-8 text-white/20 mb-4" fill="currentColor" viewBox="0 0 32 32">
+                <div className="mb-6 sm:mb-8">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white/20 mb-3 sm:mb-4" fill="currentColor" viewBox="0 0 32 32">
                     <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H6c0-2.2 1.8-4 4-4V8zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-8c0-2.2 1.8-4 4-4V8z"/>
                   </svg>
-                  <p className="text-white/80 text-lg leading-relaxed font-plus-jakarta">
+                  <p className="text-white/80 text-base sm:text-lg leading-relaxed font-plus-jakarta">
                     {testimonial.quote}
                   </p>
                 </div>
 
                 {/* Author */}
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8">
                   <p className="font-semibold text-white font-plus-jakarta">{testimonial.author}</p>
-                  <p className="text-sm text-white/60 font-plus-jakarta">{testimonial.role}</p>
-                  <p className="text-sm text-white/60 font-plus-jakarta">{testimonial.company}</p>
+                  <p className="text-xs sm:text-sm text-white/60 font-plus-jakarta">{testimonial.role}</p>
+                  <p className="text-xs sm:text-sm text-white/60 font-plus-jakarta">{testimonial.company}</p>
                 </div>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-4">
+                <div className="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-2">
                   {testimonial.metrics.map((metric) => (
-                    <div key={metric.label} className="text-center group-hover:transform group-hover:scale-105 transition-all duration-300">
-                      <p className="text-2xl font-bold text-white mb-1 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent font-plus-jakarta">
+                    <div key={metric.label} className="flex sm:block items-center justify-between sm:text-center group-hover:transform group-hover:scale-105 transition-all duration-300 bg-white/5 sm:bg-transparent rounded-lg sm:rounded-none p-3 sm:p-0">
+                      <div>
+                        <p className="text-sm sm:text-xs text-white/60 font-plus-jakarta sm:mb-1">{metric.label}</p>
+                        <p className="text-[10px] text-white/40 font-plus-jakarta leading-tight sm:block hidden">{metric.description}</p>
+                      </div>
+                      <p className="text-lg sm:text-2xl font-bold text-white sm:mb-1 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent font-plus-jakarta">
                         {metric.value}
                       </p>
-                      <p className="text-xs text-white/60 font-plus-jakarta mb-1">{metric.label}</p>
-                      <p className="text-[10px] text-white/40 font-plus-jakarta leading-tight">{metric.description}</p>
                     </div>
                   ))}
                 </div>
