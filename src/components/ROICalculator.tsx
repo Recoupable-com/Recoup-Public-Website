@@ -12,21 +12,27 @@ export default function ROICalculator() {
     // Base hours saved per staff member (minimum)
     const baseHoursPerStaffMember = 10;
     
-    // Additional hours saved per artist managed (20% of base hours per artist)
-    const additionalHoursPerArtist = baseHoursPerStaffMember * 0.2;
+    // Calculate base hours per month
+    const baseHoursPerMonth = staffSize * baseHoursPerStaffMember * 4; // Convert to monthly
     
-    // Calculate total hours saved per week
-    const hoursPerWeek = (staffSize * baseHoursPerStaffMember) + 
-                        (rosterSize * additionalHoursPerArtist);
-                        
-    const hoursPerMonth = Math.round(hoursPerWeek * 4); // Approximate monthly hours saved
-    const monthlyValueSaved = hoursPerMonth * 50; // $50 per hour value
+    // Calculate artist multiplier with moderate scaling
+    // Start small and grow at a moderate pace
+    const artistMultiplier = rosterSize === 1 ? 0.25 : // 25% of base for 1 artist
+      0.25 + Math.pow(rosterSize - 1, 0.9) * 0.12; // Moderate exponential growth
+    
+    // Team synergy multiplier - grows at a moderate pace
+    const teamSynergyMultiplier = 1 + (Math.log2(staffSize) * 0.08);
+    
+    // Calculate total hours with all multipliers
+    const totalHoursPerMonth = Math.round(baseHoursPerMonth * artistMultiplier * teamSynergyMultiplier);
+    
+    const monthlyValueSaved = totalHoursPerMonth * 50;
     const annualValueSaved = monthlyValueSaved * 12;
-    const annualCost = rosterSize * 99 * 12; // $99 per artist per month
+    const annualCost = rosterSize * 99 * 12;
     const roi = ((annualValueSaved / annualCost) * 100).toFixed(0);
 
     return {
-      hoursPerMonth,
+      hoursPerMonth: totalHoursPerMonth,
       roi,
       annualSavings: annualValueSaved.toLocaleString()
     };
@@ -104,7 +110,7 @@ export default function ROICalculator() {
                 <input
                   type="range"
                   min="1"
-                  max="20"
+                  max="50"
                   value={staffSize}
                   onChange={(e) => setStaffSize(parseInt(e.target.value))}
                   className="w-full h-2 bg-[#F5F5F5] rounded-lg appearance-none cursor-pointer"
@@ -113,7 +119,7 @@ export default function ROICalculator() {
                 <div className="flex justify-between mt-2">
                   <span className="text-sm text-neutral-600 font-plus-jakarta">1 person</span>
                   <span className="text-lg font-semibold text-black font-plus-jakarta">{staffSize} people</span>
-                  <span className="text-sm text-neutral-600 font-plus-jakarta">20 people</span>
+                  <span className="text-sm text-neutral-600 font-plus-jakarta">50 people</span>
                 </div>
               </div>
             </div>
@@ -147,7 +153,7 @@ export default function ROICalculator() {
                   <svg className="w-5 h-5 text-neutral-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>+20% time saved for each additional artist</span>
+                  <span>+35% time saved for each additional artist</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-neutral-600">
                   <svg className="w-5 h-5 text-neutral-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
