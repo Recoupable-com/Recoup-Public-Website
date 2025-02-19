@@ -108,47 +108,49 @@ export default function Features() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-white rounded-3xl border border-[#DBDBDB] overflow-hidden transition-all duration-300 hover:border-black hover:shadow-xl hover:translate-y-1">
-                {/* Metric Badge */}
-                <div className="absolute top-6 right-4 sm:right-6">
-                  <div className="bg-black text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl">
-                    <p className="text-lg sm:text-2xl font-bold whitespace-nowrap">{feature.metric}</p>
-                    <p className="text-[10px] sm:text-xs text-white/80 whitespace-nowrap">{feature.metricLabel}</p>
+              <div className="relative bg-white rounded-2xl sm:rounded-3xl border border-[#DBDBDB] overflow-hidden transition-all duration-300 hover:border-black hover:shadow-xl hover:translate-y-1">
+                {/* Header Section with Icon and Metric */}
+                <div className="flex items-start justify-between p-4 sm:p-6 border-b border-[#DBDBDB]">
+                  {/* Icon */}
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="inline-flex rounded-xl p-2.5 sm:p-4 bg-[#F5F5F5] hover:bg-black hover:text-white transition-colors duration-200"
+                  >
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      {feature.icon.props.children}
+                    </svg>
+                  </motion.div>
+
+                  {/* Metric Badge */}
+                  <div className="bg-black text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl">
+                    <p className="text-base sm:text-2xl font-bold whitespace-nowrap">{feature.metric}</p>
+                    <p className="text-[10px] sm:text-xs text-white/80 whitespace-nowrap text-right">{feature.metricLabel}</p>
                   </div>
                 </div>
 
-                <div className="relative p-6 sm:p-8">
-                  {/* Icon */}
-                  <div className="mb-8">
-                    <motion.div 
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      className="inline-flex rounded-2xl p-5 bg-[#F5F5F5] hover:bg-black hover:text-white transition-colors duration-200"
-                    >
-                      {feature.icon}
-                    </motion.div>
-                  </div>
-
+                {/* Content Section */}
+                <div className="p-4 sm:p-6">
                   {/* Title & Description */}
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold mb-3 font-plus-jakarta">
+                  <div className="mb-6">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 font-plus-jakarta">
                       {feature.title}
                     </h3>
-                    <p className="text-neutral-600 leading-relaxed font-plus-jakarta">
+                    <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-plus-jakarta">
                       {feature.description}
                     </p>
                   </div>
 
                   {/* Bullet Points */}
-                  <ul className="space-y-4">
+                  <ul className="space-y-3">
                     {feature.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-3 bg-neutral-50 rounded-xl p-4 hover:bg-neutral-100 transition-all">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center mt-0.5">
-                          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <li key={bullet} className="flex items-center gap-3 bg-neutral-50 rounded-xl p-3 sm:p-4 hover:bg-neutral-100 transition-all">
+                        <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-black flex items-center justify-center">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-neutral-700 font-medium font-plus-jakarta">
+                        <span className="text-sm text-neutral-700 font-medium font-plus-jakarta">
                           {bullet}
                         </span>
                       </li>

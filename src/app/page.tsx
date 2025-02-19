@@ -8,6 +8,7 @@ import CTA from '@/components/CTA';
 import Navbar from '@/components/Navbar';
 import MainCard from '@/components/MainCard';
 import BrandLogos from '@/components/BrandLogos';
+import CaseStudyCards from '@/components/CaseStudyCards';
 
 export default function Home() {
   return (
@@ -55,6 +56,13 @@ export default function Home() {
         <div className="relative bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ROICalculator />
+          </div>
+        </div>
+
+        {/* Case Studies Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CaseStudyCards />
           </div>
         </div>
 

@@ -138,7 +138,7 @@ export default function ROICalculator() {
               
               <div className="p-4 sm:p-6 bg-black text-white rounded-xl">
                 <h4 className="text-xs sm:text-sm text-white/70 mb-1 font-plus-jakarta">Value of Time Saved</h4>
-                <p className="text-xl sm:text-2xl font-bold font-plus-jakarta break-words">${results.annualSavings}/year</p>
+                <p className="text-xl sm:text-2xl font-bold font-plus-jakarta whitespace-nowrap">${results.annualSavings}/year</p>
                 <p className="text-xs sm:text-sm text-white/70 mt-2 font-plus-jakarta">At $50/hour industry rate</p>
               </div>
             </div>
