@@ -6,18 +6,72 @@ import Testimonials from '@/components/Testimonials';
 import ROICalculator from '@/components/ROICalculator';
 import CTA from '@/components/CTA';
 import Navbar from '@/components/Navbar';
+import MainCard from '@/components/MainCard';
+import BrandLogos from '@/components/BrandLogos';
 
 export default function Home() {
   return (
-    <main>
+    <div className="min-h-screen bg-white absolute inset-0">
+      <div className="min-h-screen bg-white fixed inset-0 -z-10" />
       <Navbar />
-      <Hero />
-      <Features />
-      <HowItWorks />
-      <Compare />
-      <ROICalculator />
-      <Testimonials />
-      <CTA />
-    </main>
+      
+      <MainCard>
+        {/* Hero Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Hero />
+          </div>
+        </div>
+
+        {/* Brand Logos Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <BrandLogos />
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Features />
+          </div>
+        </div>
+
+        {/* How It Works Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <HowItWorks />
+          </div>
+        </div>
+
+        {/* Compare Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Compare />
+          </div>
+        </div>
+
+        {/* ROI Calculator Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ROICalculator />
+          </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="relative bg-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Testimonials />
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CTA />
+          </div>
+        </div>
+      </MainCard>
+    </div>
   );
 }

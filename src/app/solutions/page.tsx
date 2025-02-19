@@ -100,77 +100,113 @@ export default function Solutions() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Complete Label Management Solution
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#F5F5F5] border border-[#DBDBDB] mb-4 font-plus-jakarta text-sm sm:text-base"
+            >
+              Used by Atlantic Records, 300 Entertainment & More
+            </motion.span>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              AI Agents for Every <br />Label Function
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need to scale your label operations and maximize artist growth.
+              Automate your operations, maximize artist growth, and drive revenue with AI-powered solutions built for the music industry.
             </p>
           </motion.div>
 
+          {/* Key Benefits */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+          >
+            <div className="bg-black text-white rounded-2xl p-8 text-center">
+              <p className="text-4xl font-bold mb-2">85%</p>
+              <p className="text-lg text-white/80">Time Saved on Operations</p>
+            </div>
+            <div className="bg-black text-white rounded-2xl p-8 text-center">
+              <p className="text-4xl font-bold mb-2">2-3x</p>
+              <p className="text-lg text-white/80">Faster Artist Growth</p>
+            </div>
+            <div className="bg-black text-white rounded-2xl p-8 text-center">
+              <p className="text-4xl font-bold mb-2">312%</p>
+              <p className="text-lg text-white/80">Average Campaign ROI</p>
+            </div>
+          </motion.div>
+
           {/* Solutions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
             {solutions.map((solution, index) => (
               <motion.div
                 key={solution.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-black transition-all duration-200"
+                className="group relative bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-black transition-all duration-200"
               >
                 <div className="p-8">
                   {/* Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="bg-black text-white p-3 rounded-xl">
+                  <div className="flex items-start gap-4 mb-8">
+                    <div className="bg-black text-white p-3 rounded-xl flex-shrink-0">
                       {solution.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl">{solution.title}</h3>
-                      <p className="text-gray-500">{solution.description}</p>
+                      <h3 className="text-2xl font-bold mb-2">{solution.title}</h3>
+                      <p className="text-gray-600">{solution.description}</p>
                     </div>
                   </div>
 
-                  {/* Features */}
-                  <ul className="space-y-3 mb-6">
+                  {/* Features with Enhanced Visual Design */}
+                  <div className="space-y-4">
                     {solution.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2">
-                        <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-gray-600">{feature}</span>
-                      </li>
+                      <div key={feature} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center mt-0.5">
+                          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-gray-900 font-medium">{feature}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
 
-                  {/* Metrics */}
-                  <div className="bg-gray-50 rounded-xl p-4 text-center">
-                    <p className="text-3xl font-bold text-black mb-1">
+                  {/* Results Card */}
+                  <div className="mt-8 bg-black text-white rounded-xl p-6 text-center">
+                    <p className="text-3xl font-bold mb-1">
                       {solution.metrics.value}
                     </p>
-                    <p className="text-sm text-gray-500">{solution.metrics.label}</p>
+                    <p className="text-sm text-white/80">{solution.metrics.label}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Integrations */}
+          {/* Integrations with Visual Enhancement */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-2xl font-semibold mb-8">
-              Seamless Integrations
+            <h2 className="text-3xl font-bold mb-4">
+              Works With Your Entire Stack
             </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Seamlessly integrate with all major music and social platforms
+            </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
               {integrations.map((platform) => (
                 <div
                   key={platform}
-                  className="bg-white border border-gray-200 rounded-xl p-4 hover:border-black transition-all duration-200"
+                  className="bg-white border border-gray-200 rounded-xl p-4 hover:border-black hover:shadow-lg transition-all duration-200"
                 >
                   <p className="font-medium">{platform}</p>
                 </div>
@@ -178,33 +214,36 @@ export default function Solutions() {
             </div>
           </motion.section>
 
-          {/* CTA */}
+          {/* Enhanced CTA Section */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center"
+            className="text-center bg-black text-white rounded-2xl p-12"
           >
-            <h2 className="text-2xl font-semibold mb-4">
-              Ready to Transform Your Label?
+            <h2 className="text-3xl font-bold mb-4">
+              Ready to Transform Your Label Operations?
             </h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join hundreds of labels using Recoupable to scale their operations and accelerate growth.
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Join leading labels using AI to automate growth, maximize fan engagement, and drive revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="https://chat.recoupable.com/signin"
-                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-black hover:bg-black/90 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-black bg-white hover:bg-gray-100 transition-colors duration-200"
               >
                 Start Free Trial
               </Link>
               <Link
                 href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                className="inline-flex items-center justify-center px-8 py-4 border border-black text-base font-medium rounded-xl text-black hover:bg-gray-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white border border-white/20 hover:bg-white/10 transition-colors duration-200"
               >
                 Schedule Demo
               </Link>
             </div>
+            <p className="mt-6 text-sm text-white/60">
+              No credit card required • 14-day free trial • Cancel anytime
+            </p>
           </motion.section>
         </div>
       </div>

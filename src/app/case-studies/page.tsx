@@ -2,44 +2,48 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
 const caseStudies = [
   {
-    title: "Universal Music Group",
-    subtitle: "Major Label Division",
+    title: "Atlantic Records",
+    subtitle: "Luh Tyler Campaign",
     metrics: [
-      { label: "Revenue Growth", value: "215%" },
-      { label: "Time Saved", value: "600+ hours" },
-      { label: "ROI", value: "825%" }
+      { label: "Email Value", value: "$30,030" },
+      { label: "Campaign ROI", value: "+200%" },
+      { label: "Fan Data Points", value: "53,011" }
     ],
-    description: "How Universal Music's digital division leveraged AI to automate artist development and achieve record-breaking growth.",
-    image: "https://ui-avatars.com/api/?name=Universal+Music&background=0D8ABC&color=fff",
-    link: "/case-studies/universal-music"
+    description: "How Atlantic Records leveraged Recoup's AI to drive unprecedented fan engagement and revenue growth for emerging artist Luh Tyler.",
+    image: "/artists/luh-tyler-profile.webp",
+    link: "/case-studies/atlantic-luh-tyler",
+    color: "from-blue-500/80"
   },
   {
-    title: "88rising",
-    subtitle: "Independent Label",
+    title: "Atlantic Records",
+    subtitle: "A Boogie Campaign",
     metrics: [
-      { label: "Artist Growth", value: "142%" },
-      { label: "Workload Reduction", value: "40%" },
-      { label: "Monthly Listeners", value: "85M+" }
+      { label: "Email Value", value: "$196,607" },
+      { label: "Campaign ROI", value: "+1053%" },
+      { label: "Fan Data Points", value: "110,286" }
     ],
-    description: "88rising's journey to scaling their roster from 50 to 200+ artists while maintaining personalized development for each artist.",
-    image: "https://ui-avatars.com/api/?name=88+Rising&background=FF6B6B&color=fff",
-    link: "/case-studies/88rising"
+    description: "A deep dive into how Atlantic Records used Recoup's AI to maximize fan engagement and revenue for A Boogie's Better Off Alone Game campaign.",
+    image: "/artists/z5oa3040hj651.webp",
+    link: "/case-studies/atlantic-a-boogie",
+    color: "from-red-500/80"
   },
   {
     title: "300 Entertainment",
-    subtitle: "Independent Label",
+    subtitle: "Megan Thee Stallion Campaign",
     metrics: [
-      { label: "Playlist Reach", value: "45M+" },
-      { label: "Fan Engagement", value: "+320%" },
-      { label: "Time to Market", value: "-65%" }
+      { label: "Email Value", value: "$206,400" },
+      { label: "Fan Data Points", value: "97,133" },
+      { label: "Super Fans", value: "6,450" }
     ],
-    description: "How 300 Entertainment used AI to revolutionize their artist development process and achieve unprecedented growth.",
-    image: "https://ui-avatars.com/api/?name=300+Entertainment&background=4CAF50&color=fff",
-    link: "/case-studies/300-entertainment"
+    description: "How 300 Entertainment used Recoup's AI to drive massive fan engagement and identify superfans for Megan Thee Stallion's BOA Game campaign.",
+    image: "/artists/megan-thee-stallion-prime-doc.webp",
+    link: "/case-studies/300-megan-thee-stallion",
+    color: "from-green-500/80"
   }
 ];
 
@@ -60,61 +64,70 @@ export default function CaseStudies() {
               Case Studies
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how leading labels are using Recoupable to transform their operations and achieve unprecedented growth.
+              See how major labels are using Recoup's AI to transform their artist development and drive unprecedented growth.
             </p>
           </motion.div>
 
           {/* Case Studies Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <motion.div
-                key={study.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-black transition-all duration-200"
-              >
-                <div className="p-6">
-                  {/* Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <img
+              <Link href={study.link} key={study.title + study.subtitle}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-black transition-all duration-200 h-full"
+                >
+                  {/* Image Container */}
+                  <div className="relative h-[280px] overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10" />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${study.color} to-transparent opacity-40 mix-blend-overlay z-10`} />
+                    <Image
                       src={study.image}
-                      alt={study.title}
-                      className="w-12 h-12 rounded-xl"
+                      alt={study.subtitle}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div>
-                      <h3 className="font-semibold text-lg">{study.title}</h3>
-                      <p className="text-gray-500 text-sm">{study.subtitle}</p>
+                    {/* Label Overlay */}
+                    <div className="absolute top-4 left-4 z-20">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                        <p className="text-sm font-medium text-black">{study.title}</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Metrics */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    {study.metrics.map((metric) => (
-                      <div key={metric.label} className="text-center">
-                        <p className="text-2xl font-bold text-black mb-1">{metric.value}</p>
-                        <p className="text-xs text-gray-500">{metric.label}</p>
-                      </div>
-                    ))}
+                  <div className="p-6">
+                    {/* Title & Description */}
+                    <div className="mb-6">
+                      <h3 className="font-semibold text-lg mb-2">{study.subtitle}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {study.description}
+                      </p>
+                    </div>
+
+                    {/* Metrics */}
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                      {study.metrics.map((metric) => (
+                        <div key={metric.label} className="text-center">
+                          <p className="text-lg font-bold text-black mb-1">{metric.value}</p>
+                          <p className="text-xs text-gray-500 leading-tight">{metric.label}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* View Details Link */}
+                    <div className="flex items-center justify-end">
+                      <span className="text-sm font-medium text-black group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                        View case study
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-                    {study.description}
-                  </p>
-
-                  {/* Link */}
-                  <Link
-                    href={study.link}
-                    className="inline-flex items-center text-sm font-medium text-black hover:opacity-70 transition-opacity"
-                  >
-                    Read full case study
-                    <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
@@ -126,10 +139,10 @@ export default function CaseStudies() {
             className="mt-16 text-center"
           >
             <h2 className="text-2xl font-semibold mb-4">
-              Ready to write your success story?
+              Ready to transform your artist development?
             </h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join the leading labels using Recoupable to transform their operations and accelerate growth.
+              Join leading labels using Recoup's AI to automate growth, maximize fan engagement, and drive revenue.
             </p>
             <Link
               href="https://chat.recoupable.com/signin"

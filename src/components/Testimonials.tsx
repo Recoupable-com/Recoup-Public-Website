@@ -1,89 +1,122 @@
-const testimonials = [
-  {
-    content: "Within 6 months of using Recoupable, we've seen a 215% increase in streaming revenue and saved over 600 hours in manual work. The AI-powered insights have been game-changing for our roster's growth.",
-    author: "Sarah Mitchell",
-    role: "Head of Digital",
-    company: "Universal Music Group",
-    image: "https://ui-avatars.com/api/?name=Sarah+Mitchell&background=0D8ABC&color=fff"
-  },
-  {
-    content: "Recoupable's AI has transformed how we manage our 200+ artist roster. We've achieved 142% YoY growth while reducing our team's workload by 40%. The ROI is incredible.",
-    author: "Michael Chen",
-    role: "CEO",
-    company: "88rising",
-    image: "https://ui-avatars.com/api/?name=Michael+Chen&background=FF6B6B&color=fff"
-  },
-  {
-    content: "The platform paid for itself in the first month. Our artists are growing faster than ever, with an average of 85% increase in monthly listeners. The AI insights are incredibly accurate.",
-    author: "David Thompson",
-    role: "Founder",
-    company: "300 Entertainment",
-    image: "https://ui-avatars.com/api/?name=David+Thompson&background=4CAF50&color=fff"
-  }
-];
+'use client';
+
+import { motion } from 'framer-motion';
 
 export default function Testimonials() {
+  const testimonials = [
+    {
+      quote: "Recoup's AI automated our entire artist development process. In 6 months, we saw massive growth across our roster.",
+      author: "Sarah Chen",
+      role: "Head of A&R",
+      company: "Indie Label Collective",
+      metrics: [
+        { label: "Revenue Growth", value: "850%", description: "Increased streaming & brand deals" },
+        { label: "New Followers", value: "13k+", description: "Per artist monthly" },
+        { label: "Time Saved", value: "85%", description: "On routine tasks" }
+      ],
+      image: "/testimonials/indie-label.jpg"
+    },
+    {
+      quote: "The AI-powered brand matching is game-changing. We're closing deals while we sleep.",
+      author: "Marcus Thompson",
+      role: "Artist Manager",
+      company: "Modern Music Group",
+      metrics: [
+        { label: "Partnership Success", value: "35%", description: "Brand deal close rate" },
+        { label: "Revenue Increase", value: "1000%", description: "Year over year" },
+        { label: "Monthly Matches", value: "50+", description: "Qualified brand leads" }
+      ],
+      image: "/testimonials/modern-music.jpg"
+    },
+    {
+      quote: "Finally, we can scale our roster without scaling our team. The data insights are incredible.",
+      author: "Lisa Rodriguez",
+      role: "Marketing Director",
+      company: "Forward Records",
+      metrics: [
+        { label: "Data Points", value: "110k+", description: "Per artist analyzed" },
+        { label: "Fan Interactions", value: "300k+", description: "Automated monthly" },
+        { label: "Campaign ROI", value: "425%", description: "Average return" }
+      ],
+      image: "/testimonials/forward-records.jpg"
+    }
+  ];
+
   return (
-    <section className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base font-semibold text-white tracking-wide uppercase">Success Stories</h2>
-          <p className="mt-2 text-4xl font-bold text-white sm:text-5xl">
-            Trusted by Industry Leaders
-          </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
-            See how leading labels are transforming their operations with AI
-          </p>
-        </div>
+    <section className="py-32 relative overflow-hidden bg-black text-white">
+      <div className="relative max-w-7xl mx-auto px-4">
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <motion.span 
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-4 font-plus-jakarta text-sm"
+          >
+            Success Stories
+          </motion.span>
+          
+          <motion.h2 
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-plus-jakarta bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
+          >
+            Real Results
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl text-white/70 max-w-2xl mx-auto font-plus-jakarta"
+          >
+            See how leading labels are transforming their operations
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <div
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
               key={testimonial.author}
-              className="flex flex-col bg-white rounded-2xl p-8 hover:scale-[1.02] transition-all duration-200 hover:shadow-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group"
             >
-              <div className="flex-1">
-                <div className="flex items-center mb-6">
-                  <img
-                    className="h-12 w-12 rounded-full border-2 border-gray-100"
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                  />
-                  <div className="ml-4">
-                    <p className="text-lg font-semibold text-gray-900">{testimonial.author}</p>
-                    <div className="text-sm text-gray-500">
-                      {testimonial.role} • {testimonial.company}
-                    </div>
-                  </div>
+              {/* Card */}
+              <div className="h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 hover:border-white/20 transition-all duration-300">
+                {/* Quote */}
+                <div className="mb-8">
+                  <svg className="w-8 h-8 text-white/20 mb-4" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H6c0-2.2 1.8-4 4-4V8zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-8c0-2.2 1.8-4 4-4V8z"/>
+                  </svg>
+                  <p className="text-white/80 text-lg leading-relaxed font-plus-jakarta">
+                    {testimonial.quote}
+                  </p>
                 </div>
-                <p className="text-gray-600 leading-relaxed">"{testimonial.content}"</p>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Logo Cloud */}
-        <div className="mt-20">
-          <p className="text-center text-base font-semibold text-gray-400 tracking-wide uppercase mb-12">
-            Powering Growth for Leading Labels
-          </p>
-          <div className="grid grid-cols-2 gap-12 md:grid-cols-6 lg:grid-cols-5">
-            {[
-              { name: "Universal Music", logo: "https://placehold.co/160x50/111/FFF?text=Universal" },
-              { name: "Sony Music", logo: "https://placehold.co/160x50/111/FFF?text=Sony" },
-              { name: "88rising", logo: "https://placehold.co/160x50/111/FFF?text=88rising" },
-              { name: "300 Entertainment", logo: "https://placehold.co/160x50/111/FFF?text=300" },
-              { name: "EMPIRE", logo: "https://placehold.co/160x50/111/FFF?text=EMPIRE" }
-            ].map((company) => (
-              <div key={company.name} className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-                <img 
-                  className="h-12 opacity-50 hover:opacity-100 transition-opacity duration-200" 
-                  src={company.logo} 
-                  alt={company.name}
-                />
+                {/* Author */}
+                <div className="mb-8">
+                  <p className="font-semibold text-white font-plus-jakarta">{testimonial.author}</p>
+                  <p className="text-sm text-white/60 font-plus-jakarta">{testimonial.role}</p>
+                  <p className="text-sm text-white/60 font-plus-jakarta">{testimonial.company}</p>
+                </div>
+
+                {/* Metrics */}
+                <div className="grid grid-cols-3 gap-4">
+                  {testimonial.metrics.map((metric) => (
+                    <div key={metric.label} className="text-center group-hover:transform group-hover:scale-105 transition-all duration-300">
+                      <p className="text-2xl font-bold text-white mb-1 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent font-plus-jakarta">
+                        {metric.value}
+                      </p>
+                      <p className="text-xs text-white/60 font-plus-jakarta mb-1">{metric.label}</p>
+                      <p className="text-[10px] text-white/40 font-plus-jakarta leading-tight">{metric.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
