@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { jsPDF } from 'jspdf';
-import Image from 'next/image';
 
 export default function PressKit() {
   const [artistData, setArtistData] = useState({
@@ -60,7 +59,7 @@ export default function PressKit() {
 
       // Add press photo if exists with proper aspect ratio
       if (artistData.pressPhoto && previewUrl) {
-        const img = new Image();
+        const img = document.createElement('img');
         img.src = previewUrl;
         await new Promise((resolve) => {
           img.onload = resolve;
@@ -260,225 +259,219 @@ export default function PressKit() {
   };
 
   return (
-    <>
+    <main>
       <Navbar />
-      <section className="pt-32 md:pt-40 pb-16 md:pb-24">
-        <div className="max-w-[800px] mx-auto px-4">
-          {/* Header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight font-medium mb-6">
-              Press Kit Generator
-            </h1>
-            <p className="text-gray-500 text-lg">
-              Create a professional press kit in minutes. Just fill in your details below.
-            </p>
-          </motion.div>
-
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white border border-gray-200 rounded-2xl p-8"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Basic Info */}
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Artist/Band Name</label>
-                  <input
-                    type="text"
-                    value={artistData.name}
-                    onChange={(e) => setArtistData({ ...artistData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                    placeholder="Enter your artist or band name"
-                    required
+      <div className="max-w-3xl mx-auto px-4 py-12">
+        <h1 className="text-3xl font-bold mb-8">Press Kit Generator</h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Basic Info */}
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Press Photo
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoChange}
+                aria-label="Upload press photo"
+                title="Upload press photo"
+                className="block w-full text-sm text-gray-500
+                  file:mr-4 file:py-2 file:px-4
+                  file:rounded-full file:border-0
+                  file:text-sm file:font-semibold
+                  file:bg-black file:text-white
+                  hover:file:bg-black/90"
+              />
+              {previewUrl && (
+                <div className="mt-4">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={previewUrl} 
+                    alt="Preview"
+                    className="max-w-full h-auto rounded-lg"
+                    style={{ maxHeight: '300px' }}
                   />
                 </div>
+              )}
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">Artist/Band Name</label>
+              <input
+                type="text"
+                value={artistData.name}
+                onChange={(e) => setArtistData({ ...artistData, name: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                placeholder="Enter your artist or band name"
+                required
+              />
+            </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Bio</label>
-                  <textarea
-                    value={artistData.bio}
-                    onChange={(e) => setArtistData({ ...artistData, bio: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none min-h-[120px]"
-                    placeholder="Write a compelling bio (aim for 2-3 paragraphs)"
-                    required
-                  />
-                </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">Bio</label>
+              <textarea
+                value={artistData.bio}
+                onChange={(e) => setArtistData({ ...artistData, bio: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none min-h-[120px]"
+                placeholder="Write a compelling bio (aim for 2-3 paragraphs)"
+                required
+              />
+            </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Genre</label>
-                    <input
-                      type="text"
-                      value={artistData.genre}
-                      onChange={(e) => setArtistData({ ...artistData, genre: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="e.g. Indie Rock, Hip Hop"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Location</label>
-                    <input
-                      type="text"
-                      value={artistData.location}
-                      onChange={(e) => setArtistData({ ...artistData, location: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="e.g. Los Angeles, CA"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <h3 className="font-medium">Contact Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <input
-                      type="email"
-                      value={artistData.email}
-                      onChange={(e) => setArtistData({ ...artistData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="contact@example.com"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Website</label>
-                    <input
-                      type="url"
-                      value={artistData.website}
-                      onChange={(e) => setArtistData({ ...artistData, website: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="https://your-website.com"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Instagram</label>
-                    <input
-                      type="text"
-                      value={artistData.instagram}
-                      onChange={(e) => setArtistData({ ...artistData, instagram: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="@username"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Spotify</label>
-                    <input
-                      type="url"
-                      value={artistData.spotify}
-                      onChange={(e) => setArtistData({ ...artistData, spotify: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="Spotify artist profile URL"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Press Photo */}
-              <div className="relative w-full h-[300px]">
-                <Image
-                  src="/path-to-your-image.jpg"
-                  alt="Press Kit Image"
-                  fill
-                  className="object-cover"
-                  priority
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Genre</label>
+                <input
+                  type="text"
+                  value={artistData.genre}
+                  onChange={(e) => setArtistData({ ...artistData, genre: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="e.g. Indie Rock, Hip Hop"
+                  required
                 />
               </div>
-
-              {/* Music Links */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-medium">Featured Music</h3>
-                  <button
-                    type="button"
-                    onClick={() => addField('musicLinks')}
-                    className="text-sm text-gray-500 hover:text-black transition-colors"
-                  >
-                    + Add Link
-                  </button>
-                </div>
-                {artistData.musicLinks.map((link, index) => (
-                  <div key={index} className="flex gap-2">
-                    <input
-                      type="url"
-                      value={link}
-                      onChange={(e) => updateField('musicLinks', index, e.target.value)}
-                      className="flex-grow px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="Add a link to your music (Spotify, SoundCloud, etc.)"
-                    />
-                    {index > 0 && (
-                      <button
-                        type="button"
-                        onClick={() => removeField('musicLinks', index)}
-                        className="px-4 text-gray-400 hover:text-black transition-colors"
-                      >
-                        ×
-                      </button>
-                    )}
-                  </div>
-                ))}
+              <div>
+                <label className="block text-sm font-medium mb-2">Location</label>
+                <input
+                  type="text"
+                  value={artistData.location}
+                  onChange={(e) => setArtistData({ ...artistData, location: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="e.g. Los Angeles, CA"
+                  required
+                />
               </div>
+            </div>
+          </div>
 
-              {/* Accolades */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-medium">Notable Achievements</h3>
-                  <button
-                    type="button"
-                    onClick={() => addField('accolades')}
-                    className="text-sm text-gray-500 hover:text-black transition-colors"
-                  >
-                    + Add Achievement
-                  </button>
-                </div>
-                {artistData.accolades.map((accolade, index) => (
-                  <div key={index} className="flex gap-2">
-                    <input
-                      type="text"
-                      value={accolade}
-                      onChange={(e) => updateField('accolades', index, e.target.value)}
-                      className="flex-grow px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                      placeholder="Add press features, awards, or notable performances"
-                    />
-                    {index > 0 && (
-                      <button
-                        type="button"
-                        onClick={() => removeField('accolades', index)}
-                        className="px-4 text-gray-400 hover:text-black transition-colors"
-                      >
-                        ×
-                      </button>
-                    )}
-                  </div>
-                ))}
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h3 className="font-medium">Contact Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  value={artistData.email}
+                  onChange={(e) => setArtistData({ ...artistData, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="contact@example.com"
+                  required
+                />
               </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Website</label>
+                <input
+                  type="url"
+                  value={artistData.website}
+                  onChange={(e) => setArtistData({ ...artistData, website: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="https://your-website.com"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Instagram</label>
+                <input
+                  type="text"
+                  value={artistData.instagram}
+                  onChange={(e) => setArtistData({ ...artistData, instagram: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="@username"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Spotify</label>
+                <input
+                  type="url"
+                  value={artistData.spotify}
+                  onChange={(e) => setArtistData({ ...artistData, spotify: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="Spotify artist profile URL"
+                />
+              </div>
+            </div>
+          </div>
 
-              {/* Submit Button */}
+          {/* Music Links */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Featured Music</h3>
               <button
-                type="submit"
-                disabled={isGenerating}
-                className="w-full bg-black text-white px-8 py-4 rounded-xl text-[15px] font-medium hover:bg-black/90 transition-all hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                type="button"
+                onClick={() => addField('musicLinks')}
+                className="text-sm text-gray-500 hover:text-black transition-colors"
               >
-                {isGenerating ? 'Generating PDF...' : 'Generate Press Kit'}
+                + Add Link
               </button>
-            </form>
-          </motion.div>
-        </div>
-      </section>
-    </>
+            </div>
+            {artistData.musicLinks.map((link, index) => (
+              <div key={index} className="flex gap-2">
+                <input
+                  type="url"
+                  value={link}
+                  onChange={(e) => updateField('musicLinks', index, e.target.value)}
+                  className="flex-grow px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="Add a link to your music (Spotify, SoundCloud, etc.)"
+                />
+                {index > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => removeField('musicLinks', index)}
+                    className="px-4 text-gray-400 hover:text-black transition-colors"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Accolades */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Notable Achievements</h3>
+              <button
+                type="button"
+                onClick={() => addField('accolades')}
+                className="text-sm text-gray-500 hover:text-black transition-colors"
+              >
+                + Add Achievement
+              </button>
+            </div>
+            {artistData.accolades.map((accolade, index) => (
+              <div key={index} className="flex gap-2">
+                <input
+                  type="text"
+                  value={accolade}
+                  onChange={(e) => updateField('accolades', index, e.target.value)}
+                  className="flex-grow px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
+                  placeholder="Add press features, awards, or notable performances"
+                />
+                {index > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => removeField('accolades', index)}
+                    className="px-4 text-gray-400 hover:text-black transition-colors"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={isGenerating}
+            className="w-full bg-black text-white px-8 py-4 rounded-xl text-[15px] font-medium hover:bg-black/90 transition-all hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+          >
+            {isGenerating ? 'Generating PDF...' : 'Generate Press Kit'}
+          </button>
+        </form>
+      </div>
+    </main>
   );
 } 
