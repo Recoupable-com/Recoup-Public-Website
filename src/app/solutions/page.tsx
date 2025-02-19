@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 const solutions = [
   {
     title: "Artist Development",
-    description: "AI-powered growth strategies customized for each artist's unique journey.",
+    description: "AI-powered growth strategies customized for each artist&apos;s unique journey.",
     features: [
       "Personalized development roadmaps",
       "Performance analytics and insights",

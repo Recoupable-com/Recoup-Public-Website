@@ -78,7 +78,7 @@ export default function UniversalMusicCaseStudy() {
               How Universal Music Group Achieved 215% Revenue Growth with AI
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A deep dive into how Universal Music's digital division transformed their artist development process with Recoupable.
+              A deep dive into how Universal Music&apos;s digital division transformed their artist development process with Recoupable.
             </p>
           </motion.div>
 
@@ -114,7 +114,7 @@ export default function UniversalMusicCaseStudy() {
             <h2 className="text-2xl font-semibold mb-4">The Challenge</h2>
             <div className="bg-gray-50 rounded-2xl p-8">
               <p className="text-gray-600 leading-relaxed mb-6">
-                Universal Music's digital division was facing several challenges in scaling their artist development operations:
+                Universal Music&apos;s digital division was facing several challenges in scaling their artist development operations:
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start">
@@ -149,7 +149,7 @@ export default function UniversalMusicCaseStudy() {
             <h2 className="text-2xl font-semibold mb-4">The Solution</h2>
             <div className="bg-emerald-50 rounded-2xl p-8">
               <p className="text-gray-600 leading-relaxed mb-6">
-                Recoupable provided a comprehensive AI-powered solution that transformed Universal's operations:
+                Recoupable provided a comprehensive solution that transformed their operations:
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start">

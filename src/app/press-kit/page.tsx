@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { jsPDF } from 'jspdf';
+import Image from 'next/image';
 
 export default function PressKit() {
   const [artistData, setArtistData] = useState({
@@ -388,30 +389,14 @@ export default function PressKit() {
               </div>
 
               {/* Press Photo */}
-              <div>
-                <label htmlFor="press-photo" className="block text-sm font-medium mb-2">Press Photo</label>
-                <input
-                  id="press-photo"
-                  type="file"
-                  onChange={handlePhotoChange}
-                  className="w-full px-4 py-3 rounded-xl bg-gray-100 border-2 border-transparent focus:border-black transition-colors outline-none"
-                  accept="image/*"
-                  title="Choose a press photo"
-                  placeholder="Choose a press photo"
+              <div className="relative w-full h-[300px]">
+                <Image
+                  src="/path-to-your-image.jpg"
+                  alt="Press Kit Image"
+                  fill
+                  className="object-cover"
+                  priority
                 />
-                <p className="mt-2 text-sm text-gray-500">High-resolution photo (landscape recommended)</p>
-                {previewUrl && (
-                  <div className="mt-4">
-                    {/* Using img element for file upload preview since next/image doesn't support blob URLs */}
-                    <img 
-                      src={previewUrl} 
-                      alt="Preview"
-                      className="max-w-full h-auto rounded-lg"
-                      style={{ maxHeight: '300px' }}
-                    />
-                    <p className="text-sm text-gray-500 mt-2">Preview of selected photo</p>
-                  </div>
-                )}
               </div>
 
               {/* Music Links */}
