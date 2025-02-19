@@ -171,10 +171,6 @@ export default function FreeTools() {
                     <Link href="https://webplayer.recoupable.com" target="_blank" rel="noopener noreferrer">
                       {cardContent}
                     </Link>
-                  ) : tool.title === 'Press Kit Generator' ? (
-                    <Link href="/press-kit">
-                      {cardContent}
-                    </Link>
                   ) : tool.title === 'Press Release Generator' ? (
                     <Link href="/press-release">
                       {cardContent}
