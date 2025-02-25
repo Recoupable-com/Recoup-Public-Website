@@ -3,11 +3,33 @@ import Navbar from '@/components/Navbar';
 import type { BlogPost } from '@/types/blog';
 import { fetchArticleById } from '@/utils/seobotApi';
 import Image from 'next/image';
+import { Metadata } from 'next';
 
 interface Props {
   params: {
     slug: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const article = await fetchArticleById(params.slug);
+    return {
+      title: article.title,
+      description: article.excerpt,
+      openGraph: {
+        title: article.title,
+        description: article.excerpt,
+        images: article.coverImage ? [article.coverImage] : [],
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Article Not Found',
+      description: 'The requested article could not be found.',
+    };
+  }
 }
 
 export default async function BlogPostPage({ params }: Props) {
