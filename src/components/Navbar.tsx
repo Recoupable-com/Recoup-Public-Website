@@ -55,7 +55,7 @@ export default function Navbar() {
                 Case Studies
               </Link>
 
-              <Link href="/research" className="hover:opacity-70 transition-opacity">
+              <Link href="/blog" className="hover:opacity-70 transition-opacity">
                 Industry Research
               </Link>
             </div>
@@ -111,7 +111,7 @@ export default function Navbar() {
                   <Link href="/case-studies" className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>
                     Case Studies
                   </Link>
-                  <Link href="/research" className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/blog" className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>
                     Industry Research
                   </Link>
                   <Link 
