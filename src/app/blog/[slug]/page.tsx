@@ -6,15 +6,14 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 interface Props {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const article = await fetchArticleById(params.slug);
+    const resolvedParams = await params;
+    const article = await fetchArticleById(resolvedParams.slug);
     return {
       title: article.title,
       description: article.excerpt,
@@ -38,8 +37,9 @@ export default async function BlogPostPage({ params }: Props) {
   let error: string | null = null;
 
   try {
-    console.log('Loading article with slug:', params.slug);
-    article = await fetchArticleById(params.slug);
+    const resolvedParams = await params;
+    console.log('Loading article with slug:', resolvedParams.slug);
+    article = await fetchArticleById(resolvedParams.slug);
     console.log('Fetched article:', article);
   } catch (e) {
     console.error('Error loading article:', e);
