@@ -8,7 +8,10 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: {
+      inlineFonts: false,
+      pruneSource: true,
+    },
     optimizePackageImports: ['framer-motion'],
   },
   poweredByHeader: false,
