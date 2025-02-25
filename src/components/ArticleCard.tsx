@@ -5,9 +5,10 @@ import { BlogPost } from '@/types/blog';
 
 interface ArticleCardProps {
   article: BlogPost;
+  isPriority?: boolean;
 }
 
-export default function ArticleCard({ article }: ArticleCardProps) {
+export default function ArticleCard({ article, isPriority = false }: ArticleCardProps) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -15,7 +16,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       transition={{ duration: 0.6 }}
       className="group relative bg-white rounded-2xl border border-neutral-200 overflow-hidden hover:border-black transition-all duration-200"
     >
-      <Link href={`/blog/${article.slug}`}>
+      <Link href={`/blog/${article.slug}`} prefetch={isPriority}>
         {/* Image */}
         {article.coverImage ? (
           <div className="aspect-[16/9] relative overflow-hidden">
@@ -24,7 +25,12 @@ export default function ArticleCard({ article }: ArticleCardProps) {
               alt={article.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              priority={isPriority}
+              loading={isPriority ? "eager" : "lazy"}
+              fetchPriority={isPriority ? "high" : "auto"}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEtAJJXIDTjwAAAABJRU5ErkJggg=="
             />
           </div>
         ) : (

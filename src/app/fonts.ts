@@ -5,6 +5,8 @@ export const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
   variable: '--font-plus-jakarta',
   weight: ['400', '500', '600', '700', '800'],  // Including various weights including bold (700)
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 export const inter = Inter({
@@ -12,4 +14,6 @@ export const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
   weight: ['400', '500', '600', '700'],
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
 }); 

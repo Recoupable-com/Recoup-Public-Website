@@ -1,26 +1,17 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
-import { useEffect, useState } from 'react';
 import { BlogPost } from '@/types/blog';
 import { fetchAllArticles } from '@/utils/seobotApi';
+import { Metadata } from 'next';
 import ArticleCard from '@/components/ArticleCard';
 
-function LoadingState() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {[...Array(3)].map((_, i) => (
-        <div key={`loading-article-${i}`} className="animate-pulse">
-          <div className="aspect-[16/9] bg-neutral-100 rounded-2xl mb-4" />
-          <div className="h-4 bg-neutral-100 rounded w-1/4 mb-2" />
-          <div className="h-8 bg-neutral-100 rounded w-3/4 mb-3" />
-          <div className="h-4 bg-neutral-100 rounded w-full" />
-        </div>
-      ))}
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: 'Research & Insights | Recoupable',
+  description: 'In-depth articles and analysis on music marketing trends, strategies, and industry insights',
+  openGraph: {
+    title: 'Research & Insights | Recoupable',
+    description: 'In-depth articles and analysis on music marketing trends, strategies, and industry insights',
+  },
+};
 
 function ErrorState({ error }: { error: string }) {
   return (
@@ -45,41 +36,31 @@ function EmptyState() {
 }
 
 function ArticlesGrid({ articles }: { articles: BlogPost[] }) {
-  const articleElements = articles.map((article) => (
-    <ArticleCard key={article.id} article={article} />
-  ));
-
   return (
-    <div key="articles-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {articleElements}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map((article, index) => (
+        <ArticleCard 
+          key={article.id} 
+          article={article} 
+          isPriority={index < 3}
+        />
+      ))}
     </div>
   );
 }
 
-export default function Blog() {
-  const [articles, setArticles] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default async function Blog() {
+  let articles: BlogPost[] = [];
+  let error: string | null = null;
 
-  useEffect(() => {
-    const loadArticles = async () => {
-      try {
-        const data = await fetchAllArticles();
-        console.log('Fetched articles:', data);
-        setArticles(data);
-      } catch (error) {
-        console.error('Error loading articles:', error);
-        setError(error instanceof Error ? error.message : 'Failed to load articles');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadArticles();
-  }, []);
+  try {
+    articles = await fetchAllArticles();
+  } catch (e) {
+    console.error('Error loading articles:', e);
+    error = e instanceof Error ? e.message : 'Failed to load articles';
+  }
 
   const renderContent = () => {
-    if (loading) return <LoadingState />;
     if (error) return <ErrorState error={error} />;
     if (articles.length === 0) return <EmptyState />;
     return <ArticlesGrid articles={articles} />;
@@ -90,11 +71,7 @@ export default function Blog() {
       <Navbar />
       <main>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             {/* Header */}
             <div className="text-center py-24">
               <h1 className="text-[72px] sm:text-[84px] lg:text-[120px] leading-[0.95] tracking-[-0.04em] mb-6 font-extrabold font-plus-jakarta">
@@ -106,7 +83,7 @@ export default function Blog() {
             </div>
 
             {renderContent()}
-          </motion.div>
+          </div>
         </div>
       </main>
     </div>

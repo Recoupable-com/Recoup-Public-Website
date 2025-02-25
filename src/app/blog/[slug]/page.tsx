@@ -10,23 +10,43 @@ interface Props {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
+// Add generateStaticParams for static generation of common articles
+export async function generateStaticParams() {
+  try {
+    // This would typically fetch the most popular articles
+    // For now, we'll return an empty array as a placeholder
+    return [];
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const resolvedParams = await params;
     const article = await fetchArticleById(resolvedParams.slug);
     return {
-      title: article.title,
+      title: `${article.title} | Recoupable`,
       description: article.excerpt,
       openGraph: {
         title: article.title,
         description: article.excerpt,
         images: article.coverImage ? [article.coverImage] : [],
+        type: 'article',
+        publishedTime: article.publishDate,
       },
+      twitter: {
+        card: 'summary_large_image',
+        title: article.title,
+        description: article.excerpt,
+        images: article.coverImage ? [article.coverImage] : [],
+      }
     };
   } catch (error) {
     console.error('Error generating metadata:', error);
     return {
-      title: 'Article Not Found',
+      title: 'Article Not Found | Recoupable',
       description: 'The requested article could not be found.',
     };
   }
@@ -80,6 +100,13 @@ export default async function BlogPostPage({ params }: Props) {
     );
   }
 
+  // Format the date once
+  const formattedDate = new Date(article.publishDate).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
   return (
     <>
       <Navbar />
@@ -93,11 +120,7 @@ export default async function BlogPostPage({ params }: Props) {
               </span>
               <span>·</span>
               <time dateTime={article.publishDate}>
-                {new Date(article.publishDate).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
+                {formattedDate}
               </time>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-plus-jakarta">
@@ -118,6 +141,10 @@ export default async function BlogPostPage({ params }: Props) {
                 className="object-cover"
                 sizes="(max-width: 800px) 100vw, 800px"
                 priority
+                fetchPriority="high"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEtAJJXIDTjwAAAABJRU5ErkJggg=="
               />
             </div>
           )}
