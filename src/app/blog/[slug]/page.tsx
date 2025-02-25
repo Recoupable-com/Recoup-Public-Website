@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         images: article.coverImage ? [article.coverImage] : [],
       },
     };
-  } catch (_error) {
+  } catch (error) {
+    console.error('Error generating metadata:', error);
     return {
       title: 'Article Not Found',
       description: 'The requested article could not be found.',
