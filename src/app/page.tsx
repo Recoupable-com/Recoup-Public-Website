@@ -9,6 +9,7 @@ import Navbar from '@/components/Navbar';
 import MainCard from '@/components/MainCard';
 import BrandLogos from '@/components/BrandLogos';
 import CaseStudyCards from '@/components/CaseStudyCards';
+import ConvaiWidget from '@/components/ConvaiWidget';
 
 export default function Home() {
   return (
@@ -80,6 +81,9 @@ export default function Home() {
           </div>
         </div>
       </MainCard>
+      
+      {/* ElevenLabs Convai Widget */}
+      <ConvaiWidget />
     </div>
   );
 }
