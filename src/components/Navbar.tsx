@@ -63,9 +63,7 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="hidden md:flex items-center gap-8">
               <Link 
-                href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://calendly.com/sidney-recoupable/one-on-one"
                 className="text-[15px] hover:opacity-70 transition-opacity font-medium"
               >
                 Book Demo
@@ -115,10 +113,8 @@ export default function Navbar() {
                     Industry Research
                   </Link>
                   <Link 
-                    href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl" 
+                    href="https://calendly.com/sidney-recoupable/one-on-one"
+                    className="block px-4 py-2 text-[15px] hover:bg-gray-50 rounded-xl"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Book Demo

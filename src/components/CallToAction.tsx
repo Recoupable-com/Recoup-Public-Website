@@ -27,14 +27,12 @@ export default function CallToAction() {
               >
                 Get started for free
               </Link>
-              <Link
-                href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 rounded-xl text-[15px] font-medium border border-white/20 hover:bg-white/10 transition-all"
+              <a
+                href="https://calendly.com/sidney-recoupable/one-on-one"
+                className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-black rounded-xl hover:bg-gray-800 transition-colors"
               >
                 Request a demo
-              </Link>
+              </a>
             </div>
 
             <div className="mt-12 pt-12 border-t border-white/10">

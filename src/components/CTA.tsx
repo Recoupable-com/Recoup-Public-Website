@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function CTA() {
   return (
@@ -84,12 +85,12 @@ export default function CTA() {
                 >
                   Start Free Trial
                 </a>
-                <a
-                  href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-black text-base font-medium rounded-xl text-black hover:bg-gray-50 transition-colors duration-200 font-plus-jakarta w-full sm:w-auto"
+                <Link
+                  href="https://calendly.com/sidney-recoupable/one-on-one"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-black rounded-xl hover:bg-gray-800 transition-colors"
                 >
                   Schedule Demo
-                </a>
+                </Link>
               </motion.div>
 
               {/* Pricing Note */}
