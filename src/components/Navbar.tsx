@@ -64,7 +64,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-8">
               <Link 
                 href="https://calendly.com/sidney-recoupable/one-on-one"
-                className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors text-[15px] font-medium"
+                className="text-[15px] hover:opacity-70 transition-opacity font-medium"
               >
                 Book Demo
               </Link>
