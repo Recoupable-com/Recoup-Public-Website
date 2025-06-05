@@ -9,59 +9,59 @@ import Navbar from '@/components/Navbar';
 import MainCard from '@/components/MainCard';
 import BrandLogos from '@/components/BrandLogos';
 import CaseStudyCards from '@/components/CaseStudyCards';
-import ConvaiWidget from '@/components/ConvaiWidget';
+// import ConvaiWidget from '@/components/ConvaiWidget';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white absolute inset-0">
-      <div className="min-h-screen bg-white fixed inset-0 -z-10" />
+    <div className="min-h-screen absolute inset-0" style={{ backgroundColor: '#FAFAFA' }}>
+      <div className="min-h-screen fixed inset-0 -z-10" style={{ backgroundColor: '#FAFAFA' }} />
       <Navbar />
       
       <MainCard>
         {/* Hero Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Hero />
           </div>
         </div>
 
         {/* Brand Logos Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <BrandLogos />
           </div>
         </div>
 
         {/* Features Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Features />
           </div>
         </div>
 
         {/* How It Works Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <HowItWorks />
           </div>
         </div>
 
         {/* Compare Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Compare />
           </div>
         </div>
 
         {/* ROI Calculator Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ROICalculator />
           </div>
         </div>
 
         {/* Case Studies Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <CaseStudyCards />
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
         </div>
 
         {/* CTA Section */}
-        <div className="relative bg-white">
+        <div className="relative" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <CTA />
           </div>
@@ -83,7 +83,7 @@ export default function Home() {
       </MainCard>
       
       {/* ElevenLabs Convai Widget */}
-      <ConvaiWidget />
+      {/* <ConvaiWidget /> */}
     </div>
   );
 }
