@@ -5,10 +5,7 @@ import Script from 'next/script';
 
 export default function ConvaiWidget() {
   useEffect(() => {
-    // This ensures the widget is properly initialized after the script loads
-    return () => {
-      // Cleanup if needed
-    };
+    console.log('ConvaiWidget: Component mounted');
   }, []);
 
   return (
@@ -22,6 +19,8 @@ export default function ConvaiWidget() {
       <Script 
         src="https://elevenlabs.io/convai-widget/index.js" 
         strategy="afterInteractive"
+        onLoad={() => console.log('ElevenLabs script loaded')}
+        onError={() => console.error('ElevenLabs script failed to load')}
       />
     </>
   );
