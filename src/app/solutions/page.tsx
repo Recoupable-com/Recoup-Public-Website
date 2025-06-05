@@ -234,9 +234,9 @@ export default function Solutions() {
               >
                 Start Free Trial
               </Link>
-              <Link
-                href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white border border-white/20 hover:bg-white/10 transition-colors duration-200"
+              <Link 
+                href="https://calendly.com/sidney-recoupable/one-on-one"
+                className="bg-black text-white px-8 py-3 rounded-xl hover:bg-gray-800 transition-colors text-center"
               >
                 Schedule Demo
               </Link>

@@ -100,8 +100,8 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0 mb-12"
             >
               <Link
-                href="https://calendly.com/sidney-recoupable/recoup-product-demo"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 text-[15px] font-medium bg-black text-white rounded-2xl sm:rounded-xl hover:bg-black/90 transition-all"
+                href="https://calendly.com/sidney-recoupable/one-on-one"
+                className="inline-flex items-center justify-center px-8 py-4 border border-black text-base font-medium rounded-xl text-black hover:bg-gray-50 transition-colors duration-200 font-plus-jakarta"
               >
                 Schedule Your Demo
               </Link>
