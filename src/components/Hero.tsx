@@ -270,7 +270,7 @@ export default function Hero() {
               </div>
               
               {/* Video Feature Navigation Buttons */}
-              <div className="mt-6 flex flex-nowrap gap-2 justify-center overflow-x-auto">
+              <div className="mt-6 flex flex-nowrap justify-between overflow-x-auto">
                 {videoFeatures.map((feature, index) => (
                   <button
                     key={index}
