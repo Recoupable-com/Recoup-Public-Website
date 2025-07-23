@@ -270,12 +270,12 @@ export default function Hero() {
               </div>
               
               {/* Video Feature Navigation Buttons */}
-              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              <div className="mt-6 flex flex-nowrap gap-2 justify-center overflow-x-auto">
                 {videoFeatures.map((feature, index) => (
                   <button
                     key={index}
                     onClick={() => jumpToTimestamp(feature.timestamp)}
-                    className="px-4 py-2 bg-white/10 hover:bg-white/20 text-black text-sm rounded-full border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm"
+                    className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-black text-xs rounded-full border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
                   >
                     {feature.label}
                   </button>
