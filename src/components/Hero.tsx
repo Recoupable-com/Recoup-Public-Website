@@ -275,7 +275,7 @@ export default function Hero() {
                   <button
                     key={index}
                     onClick={() => jumpToTimestamp(feature.timestamp)}
-                    className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-black text-xs rounded-full border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+                    className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-black text-xs rounded-full border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm whitespace-nowrap flex-shrink-0 transform hover:scale-105"
                   >
                     {feature.label}
                   </button>
