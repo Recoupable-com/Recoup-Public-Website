@@ -83,11 +83,14 @@ export default function Hero() {
   };
 
   const videoFeatures = [
-    { label: "AI Agents Overview", timestamp: 0 },
-    { label: "Campaign Creation", timestamp: 30 },
-    { label: "Roster Development", timestamp: 60 },
-    { label: "Analytics Dashboard", timestamp: 90 },
-    { label: "Revenue Optimization", timestamp: 120 }
+    { label: "Create Artist", timestamp: 0 },
+    { label: "Deep Research", timestamp: 30 },
+    { label: "Knowledge Bases", timestamp: 60 },
+    { label: "Voice Mode", timestamp: 90 },
+    { label: "Campaign Strategy", timestamp: 120 },
+    { label: "Generate Images", timestamp: 150 },
+    { label: "Send Emails", timestamp: 180 },
+    { label: "Schedule Actions", timestamp: 210 }
   ];
 
   if (!isClient) {
