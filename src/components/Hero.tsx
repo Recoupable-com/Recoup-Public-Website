@@ -9,6 +9,7 @@ import AgentPills from '@/components/AgentPills';
 export default function Hero() {
   const [isClient, setIsClient] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -43,6 +44,18 @@ export default function Hero() {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
     }
   };
 
@@ -174,12 +187,24 @@ export default function Hero() {
                   loop
                   playsInline
                   poster="/Recoup Website.svg"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
+                  className="w-full h-auto rounded-2xl shadow-2xl cursor-pointer"
                   style={{ aspectRatio: '16/10' }}
+                  onClick={togglePlayPause}
                 >
                   <source src="/Getting Started with Recoup (2).mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                
+                {/* Play/Pause Overlay */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-2xl">
+                    <div className="bg-black/70 hover:bg-black/90 text-white p-4 rounded-full transition-all duration-200 backdrop-blur-sm">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                )}
                 
                 {/* Progress Bar */}
                 <div className="absolute bottom-4 left-4 right-16 bg-black/50 rounded-full h-2 backdrop-blur-sm">
