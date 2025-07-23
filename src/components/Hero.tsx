@@ -9,10 +9,34 @@ import AgentPills from '@/components/AgentPills';
 export default function Hero() {
   const [isClient, setIsClient] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const updateProgress = () => {
+      const progress = (video.currentTime / video.duration) * 100;
+      setProgress(progress);
+    };
+
+    const updateDuration = () => {
+      setDuration(video.duration);
+    };
+
+    video.addEventListener('timeupdate', updateProgress);
+    video.addEventListener('loadedmetadata', updateDuration);
+
+    return () => {
+      video.removeEventListener('timeupdate', updateProgress);
+      video.removeEventListener('loadedmetadata', updateDuration);
+    };
   }, []);
 
   const toggleMute = () => {
@@ -20,6 +44,19 @@ export default function Hero() {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(videoRef.current.muted);
     }
+  };
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickProgress = (clickX / rect.width) * 100;
+    const newTime = (clickProgress / 100) * video.duration;
+    
+    video.currentTime = newTime;
+    setProgress(clickProgress);
   };
 
   if (!isClient) {
@@ -143,6 +180,26 @@ export default function Hero() {
                   <source src="/Getting Started with Recoup (2).mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                
+                {/* Progress Bar */}
+                <div className="absolute bottom-4 left-4 right-16 bg-black/50 rounded-full h-2 backdrop-blur-sm">
+                  <div
+                    className="relative h-full bg-white/70 hover:bg-white/90 rounded-full cursor-pointer transition-all duration-200"
+                    onClick={handleProgressClick}
+                    role="slider"
+                    aria-label="Video progress"
+                  >
+                    <div
+                      className="h-full bg-white rounded-full transition-all duration-100"
+                      style={{ width: `${progress}%` }}
+                    />
+                    {/* Progress thumb */}
+                    <div
+                      className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg opacity-0 hover:opacity-100 transition-opacity duration-200"
+                      style={{ left: `${progress}%`, transform: 'translateX(-50%) translateY(-50%)' }}
+                    />
+                  </div>
+                </div>
                 
                 {/* Unmute Button */}
                 <button
