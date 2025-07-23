@@ -74,7 +74,7 @@ export default function Compare() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 font-plus-jakarta"
           >
-            AI vs Manual
+            Old vs New
           </motion.h2>
           
           <motion.p 
