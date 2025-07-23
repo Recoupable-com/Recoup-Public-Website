@@ -83,13 +83,13 @@ export default function Hero() {
   };
 
   const videoFeatures = [
-    { label: "Create Artist", timestamp: 0 },
-    { label: "Deep Research", timestamp: 30 },
-    { label: "Knowledge Bases", timestamp: 60 },
-    { label: "Campaign Strategy", timestamp: 90 },
-    { label: "Generate Images", timestamp: 120 },
-    { label: "Send Emails", timestamp: 150 },
-    { label: "Schedule Actions", timestamp: 180 }
+    { label: "Create Artists", timestamp: 15 },
+    { label: "Deep Research", timestamp: 45 },
+    { label: "Knowledge Bases", timestamp: 80 },
+    { label: "Campaign Creation", timestamp: 145 },
+    { label: "Send Emails", timestamp: 212 },
+    { label: "Generate Images", timestamp: 282 },
+    { label: "Schedule Actions", timestamp: 312 }
   ];
 
   if (!isClient) {
