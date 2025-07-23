@@ -202,7 +202,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="relative w-full max-w-[1000px] mx-auto"
+              className="relative w-full max-w-[1000px] mx-auto bg-white rounded-3xl p-8 shadow-lg"
             >
               <div className="relative w-full">
                 <video
