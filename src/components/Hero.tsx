@@ -121,14 +121,18 @@ export default function Hero() {
               className="relative w-full max-w-[1000px] mx-auto"
             >
               <div className="relative w-full">
-                <Image
-                  src="/Recoup Website.svg"
-                  alt="Recoupable Website Interface"
-                  width={1000}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster="/Recoup Website.svg"
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                  style={{ aspectRatio: '16/10' }}
+                >
+                  <source src="/Getting Started with Recoup (2).mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <div className="absolute inset-0">
                   <AgentPills />
                 </div>
