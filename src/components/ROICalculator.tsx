@@ -64,7 +64,7 @@ export default function ROICalculator() {
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 font-plus-jakarta"
           >
-            How Much Time Could You Save?
+            How Much Could You Save?
           </motion.h2>
           
           <motion.p 
