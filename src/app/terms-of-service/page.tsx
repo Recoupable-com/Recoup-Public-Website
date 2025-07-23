@@ -232,9 +232,7 @@ export default function TermsOfService() {
                 <p className="text-gray-700 mb-2">
                   <strong>Website:</strong> <a href="https://recoupable.com" className="text-blue-600 hover:text-blue-800">https://recoupable.com</a>
                 </p>
-                <p className="text-gray-700 mb-2">
-                  <strong>Support:</strong> <a href="https://recoupable.com/contact" className="text-blue-600 hover:text-blue-800">https://recoupable.com/contact</a>
-                </p>
+
                 <p className="text-gray-700">
                   <strong>Response Time:</strong> We aim to respond to all legal inquiries within 30 days.
                 </p>
