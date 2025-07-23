@@ -86,11 +86,10 @@ export default function Hero() {
     { label: "Create Artist", timestamp: 0 },
     { label: "Deep Research", timestamp: 30 },
     { label: "Knowledge Bases", timestamp: 60 },
-    { label: "Voice Mode", timestamp: 90 },
-    { label: "Campaign Strategy", timestamp: 120 },
-    { label: "Generate Images", timestamp: 150 },
-    { label: "Send Emails", timestamp: 180 },
-    { label: "Schedule Actions", timestamp: 210 }
+    { label: "Campaign Strategy", timestamp: 90 },
+    { label: "Generate Images", timestamp: 120 },
+    { label: "Send Emails", timestamp: 150 },
+    { label: "Schedule Actions", timestamp: 180 }
   ];
 
   if (!isClient) {
