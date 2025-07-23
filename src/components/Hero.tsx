@@ -285,7 +285,7 @@ export default function Hero() {
                     onClick={() => jumpToTimestamp(feature.timestamp, index)}
                     className={`px-3 py-1.5 text-black text-xs rounded-full border transition-all duration-200 backdrop-blur-sm whitespace-nowrap flex-shrink-0 transform hover:scale-105 ${
                       selectedFeature === index
-                        ? 'bg-white border-gray-300 shadow-md'
+                        ? 'bg-white/30 border-white/50'
                         : 'bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/40'
                     }`}
                   >
