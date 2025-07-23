@@ -79,6 +79,11 @@ export default function Hero() {
         videoRef.current.play();
         setIsPlaying(true);
       }
+      // Unmute audio when jumping to a feature
+      if (videoRef.current.muted) {
+        videoRef.current.muted = false;
+        setIsMuted(false);
+      }
     }
   };
 
