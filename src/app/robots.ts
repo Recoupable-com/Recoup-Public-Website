@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://recoup.com/sitemap.xml',
+    sitemap: 'https://recoupable.com/sitemap.xml',
   };
 } 

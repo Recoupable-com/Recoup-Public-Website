@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 const solutions = [
   {
     title: "Artist Development",
-    description: "AI-powered growth strategies customized for each artist&apos;s unique journey.",
+    description: "AI-powered growth strategies customized for each artist's unique journey.",
     features: [
       "Personalized development roadmaps",
       "Performance analytics and insights",
@@ -236,7 +236,7 @@ export default function Solutions() {
               </Link>
               <Link 
                 href="https://calendly.com/sidney-recoupable/one-on-one"
-                className="bg-black text-white px-8 py-3 rounded-xl hover:bg-gray-800 transition-colors text-center"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white bg-black hover:bg-gray-800 transition-colors duration-200"
               >
                 Schedule Demo
               </Link>

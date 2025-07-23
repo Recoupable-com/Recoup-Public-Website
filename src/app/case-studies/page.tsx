@@ -14,7 +14,7 @@ const caseStudies = [
       { label: "Campaign ROI", value: "+200%" },
       { label: "Fan Data Points", value: "53,011" }
     ],
-    description: "How Atlantic Records leveraged Recoup&apos;s AI to drive unprecedented fan engagement and revenue growth for emerging artist Luh Tyler.",
+    description: "How Atlantic Records leveraged Recoupable's AI to drive unprecedented fan engagement and revenue growth for emerging artist Luh Tyler.",
     image: "/artists/luh-tyler-profile.webp",
     link: "/case-studies/atlantic-luh-tyler",
     color: "from-blue-500/80"
@@ -27,7 +27,7 @@ const caseStudies = [
       { label: "Campaign ROI", value: "+1053%" },
       { label: "Fan Data Points", value: "110,286" }
     ],
-    description: "A deep dive into how Atlantic Records used Recoup&apos;s AI to maximize fan engagement and revenue for A Boogie&apos;s Better Off Alone Game campaign.",
+    description: "A deep dive into how Atlantic Records used Recoupable's AI to maximize fan engagement and revenue for A Boogie's Better Off Alone campaign.",
     image: "/artists/z5oa3040hj651.webp",
     link: "/case-studies/atlantic-a-boogie",
     color: "from-red-500/80"
@@ -40,7 +40,7 @@ const caseStudies = [
       { label: "Fan Data Points", value: "97,133" },
       { label: "Super Fans", value: "6,450" }
     ],
-    description: "How 300 Entertainment used Recoup&apos;s AI to drive massive fan engagement and identify superfans for Megan Thee Stallion&apos;s BOA Game campaign.",
+    description: "How 300 Entertainment used Recoupable's AI to drive massive fan engagement and identify superfans for Megan Thee Stallion's BOA campaign.",
     image: "/artists/megan-thee-stallion-prime-doc.webp",
     link: "/case-studies/300-megan-thee-stallion",
     color: "from-green-500/80"
@@ -64,7 +64,7 @@ export default function CaseStudies() {
               Case Studies
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how major labels are using Recoup&apos;s AI to transform their artist development and drive unprecedented growth.
+              See how major labels are using Recoupable's AI to transform their artist development and drive unprecedented growth.
             </p>
           </motion.div>
 
@@ -142,7 +142,7 @@ export default function CaseStudies() {
               Ready to transform your artist development?
             </h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join leading labels using Recoup&apos;s AI to automate growth, maximize fan engagement, and drive revenue.
+              Join leading labels using Recoupable's AI to automate growth, maximize fan engagement, and drive revenue.
             </p>
             <Link
               href="https://chat.recoupable.com/signin"

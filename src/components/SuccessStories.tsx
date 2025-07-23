@@ -9,7 +9,7 @@ export default function SuccessStories() {
       name: "Sarah Chen",
       role: "Independent Artist",
       image: "/headshots/Sarah.jpg",
-      quote: "Recoup helped me grow my Spotify monthly listeners from 1K to 50K in just 3 months. The AI-powered strategies were game-changing.",
+      quote: "Recoupable helped me grow my Spotify monthly listeners from 1K to 50K in just 3 months. The AI-powered strategies were game-changing.",
       stats: [
         { label: "Spotify Growth", value: "50K+" },
         { label: "Revenue Increase", value: "312%" }
@@ -60,7 +60,7 @@ export default function SuccessStories() {
             From artists like you
           </h2>
           <p className="text-gray-500 max-w-[600px] mx-auto text-lg">
-            See how musicians and industry professionals are using Recoup to grow their careers.
+            See how musicians and industry professionals are using Recoupable to grow their careers.
           </p>
         </motion.div>
 

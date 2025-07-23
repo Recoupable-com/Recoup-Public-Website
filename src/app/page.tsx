@@ -13,8 +13,7 @@ import CaseStudyCards from '@/components/CaseStudyCards';
 
 export default function Home() {
   return (
-    <div className="min-h-screen absolute inset-0" style={{ backgroundColor: '#FAFAFA' }}>
-      <div className="min-h-screen fixed inset-0 -z-10" style={{ backgroundColor: '#FAFAFA' }} />
+    <div className="min-h-screen" style={{ backgroundColor: '#FAFAFA' }}>
       <Navbar />
       
       <MainCard>

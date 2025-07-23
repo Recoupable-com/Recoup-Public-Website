@@ -13,7 +13,7 @@ export default function CaseStudyCards() {
         { label: "Email Value", value: "$196,607" },
         { label: "Campaign ROI", value: "+1053%" }
       ],
-      description: "How Atlantic Records used Recoup's AI to maximize fan engagement and revenue for A Boogie's Better Off Alone Game campaign.",
+      description: "How Atlantic Records used Recoupable's AI to maximize fan engagement and revenue for A Boogie's Better Off Alone campaign.",
       image: "/artists/z5oa3040hj651.webp",
       link: "/case-studies/atlantic-a-boogie",
       color: "from-blue-500/80"
@@ -25,7 +25,7 @@ export default function CaseStudyCards() {
         { label: "Email Value", value: "$206,400" },
         { label: "Fan Data Points", value: "97,133" }
       ],
-      description: "How 300 Entertainment used Recoup's AI to drive massive fan engagement and identify superfans for Megan Thee Stallion's BOA Game campaign.",
+      description: "How 300 Entertainment used Recoupable's AI to drive massive fan engagement and identify superfans for Megan Thee Stallion's BOA campaign.",
       image: "/artists/megan-thee-stallion-prime-doc.webp",
       link: "/case-studies/300-megan-thee-stallion",
       color: "from-purple-500/80"
@@ -70,7 +70,7 @@ export default function CaseStudyCards() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl text-neutral-600 max-w-3xl mx-auto font-plus-jakarta"
           >
-            See how leading labels are using Recoup to transform their operations
+            See how leading labels are using Recoupable to transform their operations
           </motion.p>
         </motion.div>
 

@@ -14,7 +14,7 @@ export default function AIAgentExplainer() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl font-medium">
-            The old way vs <span className="bg-[#4477FF] text-white px-3 py-1 rounded-md">Recoup way</span>
+                          The old way vs <span className="bg-[#4477FF] text-white px-3 py-1 rounded-md">Recoupable way</span>
           </h2>
         </motion.div>
 
@@ -67,7 +67,7 @@ export default function AIAgentExplainer() {
             </div>
           </motion.div>
 
-          {/* The Recoup Way */}
+                      {/* The Recoupable Way */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -80,7 +80,7 @@ export default function AIAgentExplainer() {
                   <path d="M16.667 5L7.5 14.167 3.333 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="text-lg text-[#4477FF]">The Recoup Way</h3>
+              <h3 className="text-lg text-[#4477FF]">The Recoupable Way</h3>
             </div>
 
             <h4 className="text-2xl font-medium mb-8">AI-Powered Growth Platform</h4>
@@ -104,7 +104,7 @@ export default function AIAgentExplainer() {
             <div className="mt-12 relative">
               <Image
                 src="/happy-artist.jpg"
-                alt="Happy artist using Recoup"
+                alt="Happy artist using Recoupable"
                 width={300}
                 height={200}
                 className="rounded-lg mx-auto"

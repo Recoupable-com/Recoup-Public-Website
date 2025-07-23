@@ -123,7 +123,7 @@ export default function Compare() {
                   </div>
                   
                   <div className="flex-1 p-3 sm:p-4 bg-black text-white rounded-xl">
-                    <p className="text-[11px] sm:text-sm mb-1 sm:mb-2 text-white/70 font-plus-jakarta">With Recoup</p>
+                    <p className="text-[11px] sm:text-sm mb-1 sm:mb-2 text-white/70 font-plus-jakarta">With Recoupable</p>
                     <p className="text-sm sm:text-base font-medium font-plus-jakarta">{item.recoupable}</p>
                   </div>
                 </div>

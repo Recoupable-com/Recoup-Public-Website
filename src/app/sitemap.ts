@@ -2,7 +2,7 @@ import { articles } from './research/articles';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://recoup.com';
+  const baseUrl = 'https://recoupable.com';
 
   // Get all articles
   const posts = Object.entries(articles).map(([slug, article]) => ({

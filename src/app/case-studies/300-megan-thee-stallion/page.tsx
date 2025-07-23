@@ -45,7 +45,7 @@ const timeline = [
   {
     date: "Day 1",
     title: "Campaign Launch",
-    description: "Launched BOA Game campaign with AI-powered targeting",
+          description: "Launched BOA campaign with AI-powered targeting",
     metrics: ["32,044 fan data points collected", "4,001 game plays"]
   },
   {
@@ -107,7 +107,7 @@ export default function MeganTheeStallionCaseStudy() {
                     4-Day Campaign Generated $206,400 in Fan Value
                   </h1>
                   <p className="text-xl md:text-2xl text-white/90">
-                    How 300 Entertainment used Recoup&apos;s AI to drive massive fan engagement through Megan Thee Stallion&apos;s BOA Game campaign.
+                    How 300 Entertainment used Recoupable's AI to drive massive fan engagement through Megan Thee Stallion's BOA campaign.
                   </p>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function MeganTheeStallionCaseStudy() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h2 className="text-2xl font-bold mb-6">The Recoup Solution</h2>
+                <h2 className="text-2xl font-bold mb-6">The Recoupable Solution</h2>
                 <div className="bg-emerald-50 rounded-xl p-8">
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
@@ -298,7 +298,7 @@ export default function MeganTheeStallionCaseStudy() {
                 Ready to Transform Your Fan Engagement?
               </h2>
               <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                Join 300 Entertainment and other major labels using Recoup&apos;s AI to drive measurable results.
+                Join 300 Entertainment and other major labels using Recoupable's AI to drive measurable results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -309,7 +309,7 @@ export default function MeganTheeStallionCaseStudy() {
                 </Link>
                 <Link 
                   href="https://calendly.com/sidney-recoupable/one-on-one"
-                  className="bg-black text-white px-8 py-3 rounded-xl hover:bg-gray-800 transition-colors text-center"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white bg-black hover:bg-gray-800 transition-colors duration-200"
                 >
                   Schedule Demo
                 </Link>

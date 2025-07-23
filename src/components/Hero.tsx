@@ -123,7 +123,7 @@ export default function Hero() {
               <div className="relative w-full">
                 <Image
                   src="/Recoup Website.svg"
-                  alt="Recoup Website Interface"
+                  alt="Recoupable Website Interface"
                   width={1000}
                   height={600}
                   className="w-full h-auto"

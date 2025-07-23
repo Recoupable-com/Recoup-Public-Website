@@ -87,7 +87,7 @@ export default function CTA() {
                 </a>
                 <Link
                   href="https://calendly.com/sidney-recoupable/one-on-one"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-black rounded-xl hover:bg-gray-800 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-black hover:bg-black/90 transition-colors duration-200 font-plus-jakarta w-full sm:w-auto"
                 >
                   Schedule Demo
                 </Link>

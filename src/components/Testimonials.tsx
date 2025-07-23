@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "Recoup's AI automated our entire artist development process. In 6 months, we saw massive growth across our roster.",
+      quote: "Recoupable's AI automated our entire artist development process. In 6 months, we saw massive growth across our roster.",
       author: "Sarah Chen",
       role: "Head of A&R",
       company: "Indie Label Collective",

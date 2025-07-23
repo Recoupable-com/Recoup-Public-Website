@@ -17,7 +17,7 @@ export default function CallToAction() {
               Ready to grow your music career?
             </h2>
             <p className="text-xl text-gray-400 mb-8 max-w-[600px] mx-auto">
-              Join thousands of artists using Recoup to reach new audiences and increase their revenue.
+              Join thousands of artists using Recoupable to reach new audiences and increase their revenue.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -32,8 +32,8 @@ export default function Navbar() {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
-                  src="/Recoup Logo Black.svg"
-                  alt="Recoup"
+                  src="/Logo_Text_Black.png"
+                  alt="Recoupable"
                   width={220}
                   height={64}
                   className="h-[64px] w-auto"
