@@ -12,6 +12,7 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export default function Hero() {
     setProgress(clickProgress);
   };
 
-  const jumpToTimestamp = (seconds: number) => {
+  const jumpToTimestamp = (seconds: number, index: number) => {
     if (videoRef.current) {
       videoRef.current.currentTime = seconds;
       if (videoRef.current.paused) {
@@ -84,6 +85,8 @@ export default function Hero() {
         videoRef.current.muted = false;
         setIsMuted(false);
       }
+      // Set selected feature for highlighting
+      setSelectedFeature(index);
     }
   };
 
@@ -279,8 +282,12 @@ export default function Hero() {
                 {videoFeatures.map((feature, index) => (
                   <button
                     key={index}
-                    onClick={() => jumpToTimestamp(feature.timestamp)}
-                    className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-black text-xs rounded-full border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm whitespace-nowrap flex-shrink-0 transform hover:scale-105"
+                    onClick={() => jumpToTimestamp(feature.timestamp, index)}
+                    className={`px-3 py-1.5 text-black text-xs rounded-full border transition-all duration-200 backdrop-blur-sm whitespace-nowrap flex-shrink-0 transform hover:scale-105 ${
+                      selectedFeature === index
+                        ? 'bg-white border-gray-300 shadow-md'
+                        : 'bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/40'
+                    }`}
                   >
                     {feature.label}
                   </button>
