@@ -72,6 +72,24 @@ export default function Hero() {
     setProgress(clickProgress);
   };
 
+  const jumpToTimestamp = (seconds: number) => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = seconds;
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const videoFeatures = [
+    { label: "AI Agents Overview", timestamp: 0 },
+    { label: "Campaign Creation", timestamp: 30 },
+    { label: "Roster Development", timestamp: 60 },
+    { label: "Analytics Dashboard", timestamp: 90 },
+    { label: "Revenue Optimization", timestamp: 120 }
+  ];
+
   if (!isClient) {
     return (
       <section className="relative pt-12 md:pt-16 overflow-hidden">
@@ -247,6 +265,19 @@ export default function Hero() {
                     </svg>
                   )}
                 </button>
+              </div>
+              
+              {/* Video Feature Navigation Buttons */}
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+                {videoFeatures.map((feature, index) => (
+                  <button
+                    key={index}
+                    onClick={() => jumpToTimestamp(feature.timestamp)}
+                    className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm rounded-full border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm"
+                  >
+                    {feature.label}
+                  </button>
+                ))}
               </div>
             </motion.div>
           </div>
