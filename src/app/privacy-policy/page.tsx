@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function PrivacyPolicy() {
-  const lastUpdated = 'January 25, 2025'
+  const lastUpdated = 'July 24, 2025'
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] py-16">
@@ -98,6 +98,10 @@ export default function PrivacyPolicy() {
                 <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred</li>
                 <li><strong>Consent:</strong> We may share information with your explicit consent</li>
               </ul>
+
+              <p className="text-gray-700 mb-4">
+                We do not transfer or disclose <strong>Google user data</strong> to third parties for purposes other than those described in this Privacy Policy. Any access, use, or sharing of Google user data is strictly limited to providing and improving our services, fulfilling obligations required by law, or actions that you have explicitly authorized. We do not use Google user data for advertising, profiling, or any other unrelated purposes.
+              </p>
 
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Third-Party Services</h3>
               <p className="text-gray-700 mb-4">
