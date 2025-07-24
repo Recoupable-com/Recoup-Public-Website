@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function PrivacyPolicy() {
-  const lastUpdated = 'January 25, 2025'
+  const lastUpdated = 'July 24, 2025'
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] py-16">
